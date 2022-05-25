@@ -18,14 +18,15 @@ public class UserEntityTypeConfiguration : IEntityTypeConfiguration<User>
                 navigationBuilder =>
                 {
                     navigationBuilder
-                        .OwnsOne(p => p.Forename)
-                        .Property(p => p.Value)
+                        .Property(p => p.Forename)
                         .HasColumnName("Forename");
 
                     navigationBuilder
-                        .OwnsOne(p => p.Surname)
-                        .Property(p => p.Value)
+                        .Property(p => p.Surname)
                         .HasColumnName("Surname");
+
+                    navigationBuilder
+                        .Ignore(p => p.FullName);
                 });
 
         builder

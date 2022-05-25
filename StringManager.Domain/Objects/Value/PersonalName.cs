@@ -3,20 +3,22 @@ namespace StringManager.Domain.Objects.Value;
 public class PersonalName : ValueObject
 {
     public PersonalName(
-        Forename forename,
-        Surname surname)
+        string forename,
+        string surname)
     {
         Forename = forename;
         Surname = surname;
     }
 
-    public Forename Forename { get; private set; }
+    public string Forename { get; private set; }
 
-    public Surname Surname { get; private set; }
+    public string Surname { get; private set; }
+
+    public string FullName => $"{Forename} {Surname}";
     
     protected override IEnumerable<object?> GetEqualityComponents()
     {
-        yield return Forename.Value;
-        yield return Surname.Value;
+        yield return Forename;
+        yield return Surname;
     }
 }
