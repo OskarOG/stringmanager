@@ -2,9 +2,14 @@ using StringManager.Domain.Objects.Value;
 
 namespace StringManager.Domain.Objects.Entity;
 
+// Virtual members exist for EF lazy loading
+// ReSharper disable once ClassWithVirtualMembersNeverInherited.Global
 public class User
 {
+    // Constructor for EF initialization to backing fields
+#pragma warning disable CS8618
     private User()
+#pragma warning restore CS8618
     {
         Access = Array.Empty<AccessGroup>();
     }

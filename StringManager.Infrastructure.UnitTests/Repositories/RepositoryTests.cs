@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
 using AutoFixture.Xunit2;
 using FluentAssertions;
+using StringManager.Domain.Objects.Entity;
 using StringManager.Infrastructure.Persistence;
-using StringManager.Infrastructure.UnitTests.Objects;
-using StringManager.TestHelpers.Attributes;
+using StringManager.TestHelpers.Fixtures;
 using Xunit;
 
 namespace StringManager.Infrastructure.UnitTests.Repositories;
@@ -12,12 +12,12 @@ public class RepositoryTests
 {
     [Theory, AutoDataWithInMemoryDb]
     public async Task Delete_WithEntity_ShouldRemoveExpectedEntity(
-        TestEntity testEntity,
+        Folder testEntity,
         [Frozen] StringManagerDbContext stringManagerDbContext,
-        Repository<TestEntity> sut)
+        Repository<Folder> sut)
     {
         // Arrange
-        stringManagerDbContext.Set<TestEntity>().Add(testEntity);
+        stringManagerDbContext.Set<Folder>().Add(testEntity);
         await stringManagerDbContext.SaveChangesAsync();
 
         // Act
@@ -26,7 +26,7 @@ public class RepositoryTests
 
         // Assert
         stringManagerDbContext
-            .Set<TestEntity>()
+            .Set<Folder>()
             .Should()
             .NotContain(x => x.Id == testEntity.Id);
     }

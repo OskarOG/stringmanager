@@ -2,9 +2,10 @@ namespace StringManager.Domain.Objects.Value;
 
 public class PersonalName : ValueObject
 {
-    private PersonalName()
-    {
-    }
+    // Constructor for EF initialization to backing fields
+#pragma warning disable CS8618
+    private PersonalName() {}
+#pragma warning restore CS8618
     
     public PersonalName(
         string forename,

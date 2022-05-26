@@ -18,9 +18,9 @@ public class AccessGroupEntityTypeConfiguration : IEntityTypeConfiguration<Acces
             .HasColumnName("Name");
 
         builder
-            .HasOne(p => p.Parent)
-            .WithMany(p => p.Children);
-
+            .HasMany(p => p.Children)
+            .WithOne(p => p.Parent);
+            
         builder
             .HasMany(p => p.Users)
             .WithMany(p => p.Access);

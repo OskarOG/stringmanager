@@ -23,8 +23,8 @@ public class FolderEntityTypeConfiguration : IEntityTypeConfiguration<Folder>
             .HasColumnName("Description");
 
         builder
-            .HasOne(p => p.Parent)
-            .WithMany(p => p.Children);
+            .HasMany(p => p.Children)
+            .WithOne(p => p.Parent);
 
         builder
             .HasMany(p => p.AccessGroupRights)

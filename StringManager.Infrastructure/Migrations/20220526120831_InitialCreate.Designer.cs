@@ -12,7 +12,7 @@ using StringManager.Infrastructure.Persistence;
 namespace StringManager.Infrastructure.Migrations
 {
     [DbContext(typeof(StringManagerDbContext))]
-    [Migration("20220526083933_InitialCreate")]
+    [Migration("20220526120831_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -2,24 +2,29 @@ using StringManager.Domain.Objects.Value;
 
 namespace StringManager.Domain.Objects.Entity;
 
+// Virtual members exist for EF lazy loading
+// ReSharper disable once ClassWithVirtualMembersNeverInherited.Global
 public class AccessGroup
 {
+    // Constructor for EF initialization to backing fields
+#pragma warning disable CS8618
     private AccessGroup()
+#pragma warning restore CS8618
     {
         Users = Array.Empty<User>();
         AccessibleFolders = Array.Empty<FolderAccessGroupRight>();
         Children = Array.Empty<AccessGroup>();
+
+        Parent = null!;
     }
     
     public AccessGroup(
         Guid id,
-        ObjectName name,
-        AccessGroup? parent)
+        ObjectName name)
         : this()
     {
         Id = id;
         Name = name;
-        Parent = parent;
     }
 
     public Guid Id { get; private set; }

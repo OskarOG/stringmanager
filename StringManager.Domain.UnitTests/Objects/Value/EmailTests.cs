@@ -1,6 +1,6 @@
 using FluentAssertions;
 using StringManager.Domain.Objects.Value;
-using StringManager.TestHelpers.Attributes;
+using StringManager.TestHelpers.Fixtures;
 using Xunit;
 
 namespace StringManager.Domain.UnitTests.Objects.Value;
