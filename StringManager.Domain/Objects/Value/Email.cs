@@ -2,6 +2,10 @@ namespace StringManager.Domain.Objects.Value;
 
 public class Email : ValueObject
 {
+    private Email()
+    {
+    }
+    
     public Email(string value)
     {
         Value = value;

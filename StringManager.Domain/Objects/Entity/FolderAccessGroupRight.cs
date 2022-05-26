@@ -17,10 +17,10 @@ public class FolderAccessGroupRight
         Folder = folder;
         AccessGroup = accessGroup;
     }
+    
+    public virtual Folder Folder { get; private set; }
 
-    public Folder Folder { get; private set; }
-
-    public AccessGroup AccessGroup { get; private set; }
+    public virtual AccessGroup AccessGroup { get; private set; }
 
     public ICollection<AccessRight> AccessRights { get; private set; }
 }

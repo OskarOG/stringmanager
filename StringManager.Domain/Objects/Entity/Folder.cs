@@ -29,9 +29,9 @@ public class Folder
 
     public FolderDescription Description { get; private set; }
  
-    public Folder? Parent { get; private set; }
+    public virtual Folder? Parent { get; private set; }
 
-    public ICollection<Folder> Children { get; private set; }
+    public virtual ICollection<Folder> Children { get; private set; }
 
-    public ICollection<FolderAccessGroupRight> AccessGroupRights { get; private set; }
+    public virtual ICollection<FolderAccessGroupRight> AccessGroupRights { get; private set; }
 }

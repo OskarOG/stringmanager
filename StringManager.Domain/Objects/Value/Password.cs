@@ -1,7 +1,11 @@
 namespace StringManager.Domain.Objects.Value;
 
-public sealed class Password : ValueObject
+public class Password : ValueObject
 {
+    private Password()
+    {
+    }
+    
     private Password(string hashedValue)
     {
         HashedValue = hashedValue;

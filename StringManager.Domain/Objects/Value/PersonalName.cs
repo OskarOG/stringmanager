@@ -2,6 +2,10 @@ namespace StringManager.Domain.Objects.Value;
 
 public class PersonalName : ValueObject
 {
+    private PersonalName()
+    {
+    }
+    
     public PersonalName(
         string forename,
         string surname)

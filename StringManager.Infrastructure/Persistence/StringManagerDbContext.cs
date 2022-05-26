@@ -31,7 +31,6 @@ public class StringManagerDbContext : DbContext, IUnitOfWork
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            // .UseSqlServer(_connectionString)
             .UseLazyLoadingProxies();
         
         base.OnConfiguring(optionsBuilder);
@@ -42,5 +41,6 @@ public class StringManagerDbContext : DbContext, IUnitOfWork
         modelBuilder.ApplyConfiguration(new AccessGroupEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new FolderEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new FolderAccessGroupRightEntityTypeConfiguration());
     }
 }

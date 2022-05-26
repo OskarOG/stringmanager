@@ -26,11 +26,11 @@ public class AccessGroup
 
     public ObjectName Name { get; private set; }
 
-    public AccessGroup? Parent { get; private set; }
+    public virtual AccessGroup? Parent { get; private set; }
 
-    public ICollection<AccessGroup> Children { get; private set; }
+    public virtual ICollection<AccessGroup> Children { get; private set; }
 
-    public ICollection<User> Users { get; private set; }
+    public virtual ICollection<User> Users { get; private set; }
 
-    public ICollection<FolderAccessGroupRight> AccessibleFolders { get; private set; }
+    public virtual ICollection<FolderAccessGroupRight> AccessibleFolders { get; private set; }
 }

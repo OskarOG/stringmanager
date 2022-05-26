@@ -30,5 +30,5 @@ public class User
 
     public Password Password { get; private set; }
 
-    public ICollection<AccessGroup> Access { get; private set; }
+    public virtual ICollection<AccessGroup> Access { get; private set; }
 }

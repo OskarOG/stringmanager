@@ -1,4 +1,6 @@
-using StringManager.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+using StringManager.Application.Persistence;
+using StringManager.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddInfrastructure();
+builder.Services.AddDbContext<IUnitOfWork, StringManagerDbContext>(options =>
+    options.UseSqlServer("name=ConnectionStrings:StringManagerDb"));
 
 var app = builder.Build();
 

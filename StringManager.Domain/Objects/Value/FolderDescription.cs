@@ -2,6 +2,10 @@ namespace StringManager.Domain.Objects.Value;
 
 public class FolderDescription : ValueObject 
 {
+    private FolderDescription()
+    {
+    }
+    
     public FolderDescription(string value)
     {
         Value = value;
