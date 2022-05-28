@@ -18,6 +18,7 @@ public static partial class DbSetQueryExtensions
         return query;
     }
 
+    // TODO: Create a way to use ThenInclude as well
     public static IQueryable<TEntity> IncludeReferences<TEntity, TProperty>(
         this IQueryable<TEntity> query,
         IEnumerable<Expression<Func<TEntity, TProperty>>> properties)

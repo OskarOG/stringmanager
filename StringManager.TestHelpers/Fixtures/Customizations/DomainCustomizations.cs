@@ -7,8 +7,7 @@ public class DomainCustomizations : CompositeCustomization
 {
     public DomainCustomizations()
         : base(
-            new AutoNSubstituteCustomization(),
-            new OmitOnRecursionCustomization())
+            new AutoNSubstituteCustomization())
     {
     }
 }

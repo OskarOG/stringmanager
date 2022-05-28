@@ -5,28 +5,28 @@ using Xunit;
 
 namespace StringManager.Domain.UnitTests.Objects.Value;
 
-public class EmailTests
+public class FolderDescriptionTests
 {
     [Theory, DomainAutoData]
     public void NotEqualOperator_WithUnequalValues_ShouldEvaluateToTrue(
-        Email leftEmail,
-        Email rightEmail)
+        FolderDescription leftDescription,
+        FolderDescription rightDescription)
     {
         // Act
-        var result = leftEmail != rightEmail;
+        var result = leftDescription != rightDescription;
 
         // Assert
         result.Should().BeTrue();
     }
 
     [Theory, DomainAutoData]
-    public void NotEqualOperator_WithEqualValues_ShouldEvaluateToFalse(Email leftEmail)
+    public void NotEqualOperator_WithEqualValues_ShouldEvaluateToFalse(FolderDescription leftDescription)
     {
         // Arrange
-        var rightEmail = new Email(leftEmail.Value);
+        var rightDescription = new FolderDescription(leftDescription.Value);
         
         // Act
-        var result = leftEmail != rightEmail;
+        var result = leftDescription != rightDescription;
         
         // Assert
         result.Should().BeFalse();
@@ -34,11 +34,11 @@ public class EmailTests
 
     [Theory, DomainAutoData]
     public void EqualOperator_WithUnequalValues_ShouldEvaluateToFalse(
-        Email leftEmail,
-        Email rightEmail)
+        FolderDescription leftDescription,
+        FolderDescription rightDescription)
     {
         // Act
-        var result = leftEmail == rightEmail;
+        var result = leftDescription == rightDescription;
         
         // Assert
         result.Should().BeFalse();
@@ -46,25 +46,25 @@ public class EmailTests
 
     [Theory, DomainAutoData]
     public void EqualOperator_WithEqualValues_ShouldEvaluateToTrue(
-        Email leftEmail)
+        FolderDescription leftDescription)
     {
         // Arrange
-        var rightEmail = new Email(leftEmail.Value);
+        var rightDescription = new FolderDescription(leftDescription.Value);
         
         // Act
-        var result = leftEmail == rightEmail;
+        var result = leftDescription == rightDescription;
 
         // Assert
         result.Should().BeTrue();
     }
 
     [Theory, DomainAutoData]
-    public void Constructor_WithValidValues_SetsExpectedProperties(Email email)
+    public void Constructor_WithValidValues_SetsExpectedProperties(FolderDescription description)
     {
         // Act
-        var result = new Email(email.Value);
+        var result = new FolderDescription(description.Value);
         
         // Assert
-        result.Value.Should().Be(email.Value);
+        result.Value.Should().Be(description.Value);
     }
 }

@@ -29,9 +29,9 @@ public class Folder
     
     public Guid Id { get; private set; }
     
-    public ObjectName Name { get; private set; }
+    public ObjectName Name { get; set; }
 
-    public FolderDescription Description { get; private set; }
+    public FolderDescription Description { get; set; }
  
     public virtual Folder? Parent { get; private set; }
 

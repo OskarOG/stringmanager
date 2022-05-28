@@ -5,28 +5,28 @@ using Xunit;
 
 namespace StringManager.Domain.UnitTests.Objects.Value;
 
-public class EmailTests
+public class PersonalNameTests
 {
     [Theory, DomainAutoData]
     public void NotEqualOperator_WithUnequalValues_ShouldEvaluateToTrue(
-        Email leftEmail,
-        Email rightEmail)
+        PersonalName left,
+        PersonalName right)
     {
         // Act
-        var result = leftEmail != rightEmail;
+        var result = left != right;
 
         // Assert
         result.Should().BeTrue();
     }
 
     [Theory, DomainAutoData]
-    public void NotEqualOperator_WithEqualValues_ShouldEvaluateToFalse(Email leftEmail)
+    public void NotEqualOperator_WithEqualValues_ShouldEvaluateToFalse(PersonalName left)
     {
         // Arrange
-        var rightEmail = new Email(leftEmail.Value);
+        var right = new PersonalName(left.Forename, left.Surname);
         
         // Act
-        var result = leftEmail != rightEmail;
+        var result = left != right;
         
         // Assert
         result.Should().BeFalse();
@@ -34,11 +34,11 @@ public class EmailTests
 
     [Theory, DomainAutoData]
     public void EqualOperator_WithUnequalValues_ShouldEvaluateToFalse(
-        Email leftEmail,
-        Email rightEmail)
+        PersonalName left,
+        PersonalName right)
     {
         // Act
-        var result = leftEmail == rightEmail;
+        var result = left == right;
         
         // Assert
         result.Should().BeFalse();
@@ -46,25 +46,27 @@ public class EmailTests
 
     [Theory, DomainAutoData]
     public void EqualOperator_WithEqualValues_ShouldEvaluateToTrue(
-        Email leftEmail)
+        PersonalName left)
     {
         // Arrange
-        var rightEmail = new Email(leftEmail.Value);
+        var right = new PersonalName(left.Forename, left.Surname);
         
         // Act
-        var result = leftEmail == rightEmail;
+        var result = left == right;
 
         // Assert
         result.Should().BeTrue();
     }
 
     [Theory, DomainAutoData]
-    public void Constructor_WithValidValues_SetsExpectedProperties(Email email)
+    public void Constructor_WithValidValues_SetsExpectedProperties(PersonalName val)
     {
         // Act
-        var result = new Email(email.Value);
+        var result = new PersonalName(val.Forename, val.Surname);
         
         // Assert
-        result.Value.Should().Be(email.Value);
+        result.Forename.Should().Be(val.Forename);
+        result.Surname.Should().Be(val.Surname);
+        result.Forename.Should().Be(val.Forename);
     }
 }

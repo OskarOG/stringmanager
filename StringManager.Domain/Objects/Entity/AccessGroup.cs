@@ -15,7 +15,7 @@ public class AccessGroup
         AccessibleFolders = Array.Empty<FolderAccessGroupRight>();
         Children = Array.Empty<AccessGroup>();
 
-        Parent = null!;
+        Parent = null;
     }
     
     public AccessGroup(
@@ -29,7 +29,7 @@ public class AccessGroup
 
     public Guid Id { get; private set; }
 
-    public ObjectName Name { get; private set; }
+    public ObjectName Name { get; set; }
 
     public virtual AccessGroup? Parent { get; private set; }
 

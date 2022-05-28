@@ -47,31 +47,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
             .FilterIfNotNull(filter)
             .IncludeReferences(includeProperties)
             .ToOrderedListAsync(orderBy);
-
-    public Task<IEnumerable<TEntity>> GetAsync<TProperty>(
-        params Expression<Func<TEntity, TProperty>>[] includeProperties) =>
-        GetAsync(null, null, includeProperties);
-
-    public Task<IEnumerable<TEntity>> GetAsync<TProperty>(
-        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy,
-        params Expression<Func<TEntity, TProperty>>[] includeProperties) =>
-        GetAsync(null, orderBy, includeProperties);
-
-    public Task<IEnumerable<TEntity>> GetAsync<TProperty>(
-        Expression<Func<TEntity, bool>> filter,
-        params Expression<Func<TEntity, bool>>[] includeProperties) =>
-        GetAsync(filter, null, includeProperties);
-
-    public Task<IEnumerable<TEntity>> GetAsync<TProperty>(
-        Expression<Func<TEntity, bool>>? filter,
-        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy,
-        params Expression<Func<TEntity, TProperty>>[] includeProperties) =>
-        _dbSet
-            .AsQueryable()
-            .FilterIfNotNull(filter)
-            .IncludeReferences(includeProperties)
-            .ToOrderedListAsync(orderBy);
-
+    
     public TEntity Insert(TEntity entity) => _dbSet.Add(entity).Entity;
 
     public void Update(TEntity entity)

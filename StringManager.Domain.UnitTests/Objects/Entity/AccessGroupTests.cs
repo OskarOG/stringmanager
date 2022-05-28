@@ -7,24 +7,23 @@ using Xunit;
 
 namespace StringManager.Domain.UnitTests.Objects.Entity;
 
-public class FolderTests
+public class AccessGroupTests
 {
     [Theory, DomainAutoData]
-    public void Constructor_WithValidValues_ShouldSetPropertiesAsExpected(
+    public void Constructor_WithValidValues_SetsExpectedProperties(
         Guid id,
-        ObjectName name,
-        FolderDescription description)
+        ObjectName name)
     {
         // Act
-        var result = new Folder(id, name, description);
+        var result = new AccessGroup(id, name);
 
         // Assert
         result.Id.Should().Be(id);
         result.Name.Should().Be(name);
-        result.Description.Should().Be(description);
 
-        result.Children.Should().BeEmpty();
         result.Parent.Should().BeNull();
-        result.AccessGroupRights.Should().BeEmpty();
+        result.Children.Should().BeEmpty();
+        result.Users.Should().BeEmpty();
+        result.AccessibleFolders.Should().BeEmpty();
     }
 }

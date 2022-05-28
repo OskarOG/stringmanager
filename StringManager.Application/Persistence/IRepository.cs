@@ -21,21 +21,9 @@ public interface IRepository<TEntity> where TEntity : class
         Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy,
         params string[] includeProperties);
     
-    Task<IEnumerable<TEntity>> GetAsync<TProperty>(params Expression<Func<TEntity, TProperty>>[] includeProperties);
+    // TODO: Create a way to use expression for include properties
+    // params Expression<Func<TEntity, TProperty>>[] includeProperties 
     
-    Task<IEnumerable<TEntity>> GetAsync<TProperty>(
-        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy,
-        params Expression<Func<TEntity, TProperty>>[] includeProperties);
-    
-    Task<IEnumerable<TEntity>> GetAsync<TProperty>(
-        Expression<Func<TEntity, bool>> filter,
-        params Expression<Func<TEntity, bool>>[] includeProperties);
-    
-    Task<IEnumerable<TEntity>> GetAsync<TProperty>(
-        Expression<Func<TEntity, bool>>? filter,
-        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy,
-        params Expression<Func<TEntity, TProperty>>[] includeProperties);
-
     TEntity Insert(TEntity entity);
 
     void Update(TEntity entity);
