@@ -1,6 +1,6 @@
 namespace StringManager.Domain.Objects.Value;
 
-public enum AccessRight
+public enum AccessRightType
 {
     None = 0,
     Create,

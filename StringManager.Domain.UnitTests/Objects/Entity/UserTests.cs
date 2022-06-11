@@ -12,17 +12,17 @@ public class UserTests
     [Theory, DomainAutoData]
     public void Constructor_WithValidValues_SetsExpectedProperties(
         Guid id,
-        PersonalName name,
         Email email,
+        UserRoleType userRole,
         Password password)
     {
         // Act
-        var result = new User(id, name, email, password);
+        var result = new User(id, email, userRole, password);
 
         // Assert
         result.Id.Should().Be(id);
-        result.Name.Should().Be(name);
         result.Email.Should().Be(email);
+        result.UserRole.Should().Be(userRole);
         result.Password.Should().Be(password);
         result.Access.Should().BeEmpty();
     }

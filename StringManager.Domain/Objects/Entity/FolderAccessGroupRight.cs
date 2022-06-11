@@ -11,7 +11,7 @@ public class FolderAccessGroupRight
     private FolderAccessGroupRight()
 #pragma warning restore CS8618
     {
-        AccessRights = Array.Empty<AccessRight>();
+        AccessRights = Array.Empty<AccessRightType>();
     }
     
     public FolderAccessGroupRight(
@@ -27,5 +27,5 @@ public class FolderAccessGroupRight
 
     public virtual AccessGroup AccessGroup { get; private set; }
 
-    public ICollection<AccessRight> AccessRights { get; private set; }
+    public ICollection<AccessRightType> AccessRights { get; private set; }
 }

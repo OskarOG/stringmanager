@@ -16,23 +16,23 @@ public class User
     
     public User(
         Guid id,
-        PersonalName name,
         Email email,
+        UserRoleType role,
         Password password)
         : this()
     {
         Id = id;
-        Name = name;
         Email = email;
+        UserRole = role;
         Password = password;
     }
 
     public Guid Id { get; private set; }
-
-    public PersonalName Name { get; set; }
-
+    
     public Email Email { get; set; }
 
+    public UserRoleType UserRole { get; set; }
+    
     public Password Password { get; set; }
 
     public virtual ICollection<AccessGroup> Access { get; private set; }

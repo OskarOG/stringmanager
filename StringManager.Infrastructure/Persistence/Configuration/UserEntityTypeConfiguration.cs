@@ -13,23 +13,6 @@ public class UserEntityTypeConfiguration : IEntityTypeConfiguration<User>
             .HasKey(p => p.Id);
 
         builder
-            .OwnsOne(
-                p => p.Name,
-                navigationBuilder =>
-                {
-                    navigationBuilder
-                        .Property(p => p.Forename)
-                        .HasColumnName("Forename");
-
-                    navigationBuilder
-                        .Property(p => p.Surname)
-                        .HasColumnName("Surname");
-
-                    navigationBuilder
-                        .Ignore(p => p.FullName);
-                });
-
-        builder
             .OwnsOne(p => p.Email)
             .Property(p => p.Value)
             .HasColumnName("Email");
