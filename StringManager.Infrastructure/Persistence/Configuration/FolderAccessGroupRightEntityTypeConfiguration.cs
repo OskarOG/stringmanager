@@ -31,13 +31,13 @@ public class FolderAccessGroupRightEntityTypeConfiguration : IEntityTypeConfigur
             .HasConversion(
                 v => MapAccessRightListToString(v),
                 v => MapStringToAccessRightList(v).ToList())
-            .Metadata.SetValueComparer(new ValueComparer<ICollection<AccessRight>>(
+            .Metadata.SetValueComparer(new ValueComparer<ICollection<AccessRightType>>(
                 (c1, c2) => c1 != null && c2 != null && c1.SequenceEqual(c2),
                 c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
                 c => c.ToList()));
     }
 
-    private static string MapAccessRightListToString(ICollection<AccessRight> accessRights)
+    private static string MapAccessRightListToString(ICollection<AccessRightType> accessRights)
     {
         var accessStringBuilder = new StringBuilder();
         for (var i = 0; i < 4; i++)
@@ -49,36 +49,36 @@ public class FolderAccessGroupRightEntityTypeConfiguration : IEntityTypeConfigur
         return accessStringBuilder.ToString();
     }
 
-    private static char GetAccessRightChar(int pos, ICollection<AccessRight> accessRights) =>
+    private static char GetAccessRightChar(int pos, ICollection<AccessRightType> accessRights) =>
         pos switch
         {
-            CreatePos => accessRights.Contains(AccessRight.Create) ? CreateChar : DeniedChar,
-            ReadPos => accessRights.Contains(AccessRight.Read) ? ReadChar : DeniedChar,
-            UpdatePos => accessRights.Contains(AccessRight.Update) ? UpdateChar : DeniedChar,
-            DeletePos => accessRights.Contains(AccessRight.Delete) ? DeleteChar : DeniedChar,
+            CreatePos => accessRights.Contains(AccessRightType.Create) ? CreateChar : DeniedChar,
+            ReadPos => accessRights.Contains(AccessRightType.Read) ? ReadChar : DeniedChar,
+            UpdatePos => accessRights.Contains(AccessRightType.Update) ? UpdateChar : DeniedChar,
+            DeletePos => accessRights.Contains(AccessRightType.Delete) ? DeleteChar : DeniedChar,
             _ => DeniedChar
         };
     
-    private static IEnumerable<AccessRight> MapStringToAccessRightList(string s)
+    private static IEnumerable<AccessRightType> MapStringToAccessRightList(string s)
     {
         if (s[CreatePos] == CreateChar)
         {
-            yield return AccessRight.Create;
+            yield return AccessRightType.Create;
         }
 
         if (s[ReadPos] == ReadChar)
         {
-            yield return AccessRight.Read;
+            yield return AccessRightType.Read;
         }
 
         if (s[UpdatePos] == UpdateChar)
         {
-            yield return AccessRight.Update;
+            yield return AccessRightType.Update;
         }
 
         if (s[DeletePos] == DeleteChar)
         {
-            yield return AccessRight.Delete;
+            yield return AccessRightType.Delete;
         }
     }
 }
