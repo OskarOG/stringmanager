@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StringManager.Infrastructure.Persistence;
 
@@ -11,9 +12,10 @@ using StringManager.Infrastructure.Persistence;
 namespace StringManager.Infrastructure.Migrations
 {
     [DbContext(typeof(StringManagerDbContext))]
-    partial class StringManagerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220611152104_RemovedUserName")]
+    partial class RemovedUserName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
