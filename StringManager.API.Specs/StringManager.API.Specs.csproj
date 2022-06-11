@@ -23,8 +23,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Drivers" />
-      <Folder Include="Steps" />
+      <ProjectReference Include="..\StringManager.Infrastructure\StringManager.Infrastructure.csproj" />
+      <ProjectReference Include="..\StringManager.TestHelpers\StringManager.TestHelpers.csproj" />
     </ItemGroup>
 
 </Project>

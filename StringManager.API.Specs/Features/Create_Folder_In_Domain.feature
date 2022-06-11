@@ -1,5 +1,8 @@
 Feature: Create_Folder_In_Domain
-
+Note:
+    Include folder tags so that folders can be tagged with SystemFolder and such in order to keep system specific texts in separate folders
+  
+  
     Background:
         Given that the following users exists
           | UserId                               | Username      |
