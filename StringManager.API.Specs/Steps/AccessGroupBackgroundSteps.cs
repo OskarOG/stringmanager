@@ -5,11 +5,11 @@ using TechTalk.SpecFlow.Assist;
 namespace StringManager.API.Specs.Steps;
 
 [Binding]
-public class AccessGroupSteps
+public class AccessGroupBackgroundSteps
 {
     private readonly DatabaseDriver _databaseDriver;
 
-    public AccessGroupSteps(DatabaseDriver databaseDriver)
+    public AccessGroupBackgroundSteps(DatabaseDriver databaseDriver)
     {
         _databaseDriver = databaseDriver;
     }
