@@ -48,7 +48,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
             .IncludeReferences(includeProperties)
             .ToOrderedListAsync(orderBy);
     
-    public TEntity Insert(TEntity entity) => _dbSet.Add(entity).Entity;
+    public TEntity Insert(TEntity entity) => _dbSet.Attach(entity).Entity;
 
     public void Update(TEntity entity)
     {
