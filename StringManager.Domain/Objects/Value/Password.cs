@@ -1,7 +1,12 @@
+using System.Text.RegularExpressions;
+using StringManager.Domain.Objects.Infrastructure;
+
 namespace StringManager.Domain.Objects.Value;
 
 public class Password : ValueObject
 {
+    private const string PasswordRegex = @"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$";
+    
     // Constructor for EF initialization to backing fields
 #pragma warning disable CS8618
     private Password() {}
@@ -14,8 +19,12 @@ public class Password : ValueObject
 
     public string HashedValue { get; private set; }
 
-    public static Password NewPassword(string password) =>
-        new(BCrypt.Net.BCrypt.EnhancedHashPassword(password));
+    public static Result<Password> NewPassword(string password) =>
+        Regex.IsMatch(password, PasswordRegex)
+            ? Result<Password>.SuccessResult(
+                new Password(
+                    BCrypt.Net.BCrypt.EnhancedHashPassword(password)))
+            : Result<Password>.ErrorResult(new Error(ProblemType.InvalidNewPassword));
 
     public bool VerifyPassword(string password) =>
         BCrypt.Net.BCrypt.EnhancedVerify(password, HashedValue);

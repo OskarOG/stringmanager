@@ -1,4 +1,6 @@
 using FluentAssertions;
+using StringManager.Domain.Objects.Entity;
+using StringManager.Domain.Objects.Infrastructure;
 using StringManager.Domain.Objects.Value;
 using StringManager.TestHelpers.Fixtures;
 using Xunit;
@@ -23,7 +25,7 @@ public class FolderDescriptionTests
     public void NotEqualOperator_WithEqualValues_ShouldEvaluateToFalse(FolderDescription leftDescription)
     {
         // Arrange
-        var rightDescription = new FolderDescription(leftDescription.Value);
+        var rightDescription = FolderDescription.Create(leftDescription.Value).Value;
         
         // Act
         var result = leftDescription != rightDescription;
@@ -49,7 +51,7 @@ public class FolderDescriptionTests
         FolderDescription leftDescription)
     {
         // Arrange
-        var rightDescription = new FolderDescription(leftDescription.Value);
+        var rightDescription = FolderDescription.Create(leftDescription.Value).Value;
         
         // Act
         var result = leftDescription == rightDescription;
@@ -59,12 +61,25 @@ public class FolderDescriptionTests
     }
 
     [Theory, DomainAutoData]
-    public void Constructor_WithValidValues_SetsExpectedProperties(FolderDescription description)
+    public void Create_WithValidValues_SetsExpectedProperties(FolderDescription description)
     {
         // Act
-        var result = new FolderDescription(description.Value);
+        var result = FolderDescription.Create(description.Value).Value;
         
         // Assert
         result.Value.Should().Be(description.Value);
+    }
+
+    [Fact]
+    public void Create_WithInvalidValue_ReturnsExpectedProblemType()
+    {
+        // Act
+        var result = FolderDescription.Create(null!);
+
+        // Assert
+        result.IsFailure.Should().BeTrue();
+        result.IsSuccess.Should().BeFalse();
+        result.Error.IsException.Should().BeFalse();
+        result.Error.ProblemType.Should().Be(ProblemType.EmptyOrNullFolderDescription);
     }
 }

@@ -24,7 +24,7 @@ namespace StringManager.API.Specs.Features
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = ((string[])(null));
+        private static string[] featureTags = ((string[])(null));
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
@@ -40,7 +40,8 @@ namespace StringManager.API.Specs.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Create_Folder_In_Domain", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Create_Folder_In_Domain", "Note:\n    Include folder tags so that folders can be tagged with SystemFolder and" +
+                    " such in order to keep system specific texts in separate folders", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -50,166 +51,178 @@ namespace StringManager.API.Specs.Features
             testRunner = null;
         }
         
-        public virtual void TestInitialize()
+        public void TestInitialize()
         {
         }
         
-        public virtual void TestTearDown()
+        public void TestTearDown()
         {
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
+        public void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
             testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<Xunit.Abstractions.ITestOutputHelper>(_testOutputHelper);
         }
         
-        public virtual void ScenarioStart()
+        public void ScenarioStart()
         {
             testRunner.OnScenarioStart();
         }
         
-        public virtual void ScenarioCleanup()
+        public void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
         
         public virtual void FeatureBackground()
         {
-#line 3
+#line 6
     #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserId",
                         "Username"});
             table1.AddRow(new string[] {
-                        "1",
+                        "1407c9e0-1bc9-4e46-b576-984cf7b7038f",
                         "SuperUser"});
             table1.AddRow(new string[] {
-                        "2",
+                        "9cda3499-8de4-4841-9dfd-ec20872ede6f",
                         "SalesReader"});
             table1.AddRow(new string[] {
-                        "3",
+                        "306c64f1-49f1-4e4c-ad80-875d753b7192",
                         "SalesUser"});
             table1.AddRow(new string[] {
-                        "4",
+                        "d9696b2e-806c-4ce4-9e9a-51e50b732f1a",
                         "ProductReader"});
             table1.AddRow(new string[] {
-                        "5",
+                        "1f9b3c51-a657-4eb7-aab1-1dcb459345b3",
                         "ProductUser"});
             table1.AddRow(new string[] {
-                        "6",
+                        "f38ed952-a262-47cf-8c49-46f78c0b36ca",
                         "SuperReader"});
-#line 4
+#line 7
         testRunner.Given("that the following users exists", ((string)(null)), table1, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "AccessGroupId",
-                        "AccessGroup"});
+                        "AccessGroup",
+                        "ParentGroupId"});
             table2.AddRow(new string[] {
-                        "1",
-                        "sales-domain-r"});
+                        "ec425f3b-ee49-40c1-b8fc-d5c7cc4a8910",
+                        "sales-domain-r",
+                        "51848b79-eba9-499e-946c-a71598e560ed"});
             table2.AddRow(new string[] {
-                        "2",
-                        "sales-domain-crud"});
+                        "51848b79-eba9-499e-946c-a71598e560ed",
+                        "sales-domain-crud",
+                        "fca72704-1d47-4cca-9502-f7c8d2052d40"});
             table2.AddRow(new string[] {
-                        "3",
-                        "super-crud"});
+                        "fca72704-1d47-4cca-9502-f7c8d2052d40",
+                        "super-crud",
+                        "<null />"});
             table2.AddRow(new string[] {
-                        "4",
-                        "super-r"});
+                        "5b0f5e44-c20c-43eb-a57e-f81a468116f2",
+                        "super-r",
+                        "fca72704-1d47-4cca-9502-f7c8d2052d40"});
             table2.AddRow(new string[] {
-                        "5",
-                        "product-domain-r"});
+                        "28325e81-d6ea-4c52-8df4-ca068f343809",
+                        "product-domain-r",
+                        "3a1d8302-b333-47c7-a3ae-eb4516b23c8e"});
             table2.AddRow(new string[] {
-                        "6",
-                        "product-domain-crud"});
+                        "3a1d8302-b333-47c7-a3ae-eb4516b23c8e",
+                        "product-domain-crud",
+                        "fca72704-1d47-4cca-9502-f7c8d2052d40"});
             table2.AddRow(new string[] {
-                        "7",
-                        "sales-users-folder-r"});
+                        "4c9d7e88-35b6-4855-aabe-69edb1d3ea5c",
+                        "sales-users-folder-r",
+                        "ec425f3b-ee49-40c1-b8fc-d5c7cc4a8910"});
             table2.AddRow(new string[] {
-                        "8",
-                        "sales-users-folder-crud"});
-#line 12
+                        "459b5518-f423-47f8-8cc8-5b2eb7e4dd8a",
+                        "sales-users-folder-crud",
+                        "51848b79-eba9-499e-946c-a71598e560ed"});
+            table2.AddRow(new string[] {
+                        "6aa91965-3831-425a-94cd-f22516270559",
+                        "new-users-folder-crud",
+                        "fca72704-1d47-4cca-9502-f7c8d2052d40"});
+#line 15
         testRunner.And("that the following access groups exists", ((string)(null)), table2, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserId",
                         "AccessGroupId"});
             table3.AddRow(new string[] {
-                        "1",
-                        "3"});
+                        "1407c9e0-1bc9-4e46-b576-984cf7b7038f",
+                        "fca72704-1d47-4cca-9502-f7c8d2052d40"});
             table3.AddRow(new string[] {
-                        "2",
-                        "1"});
+                        "9cda3499-8de4-4841-9dfd-ec20872ede6f",
+                        "ec425f3b-ee49-40c1-b8fc-d5c7cc4a8910"});
             table3.AddRow(new string[] {
-                        "3",
-                        "2"});
+                        "306c64f1-49f1-4e4c-ad80-875d753b7192",
+                        "51848b79-eba9-499e-946c-a71598e560ed"});
             table3.AddRow(new string[] {
-                        "3",
-                        "8"});
+                        "306c64f1-49f1-4e4c-ad80-875d753b7192",
+                        "459b5518-f423-47f8-8cc8-5b2eb7e4dd8a"});
             table3.AddRow(new string[] {
-                        "4",
-                        "5"});
+                        "d9696b2e-806c-4ce4-9e9a-51e50b732f1a",
+                        "28325e81-d6ea-4c52-8df4-ca068f343809"});
             table3.AddRow(new string[] {
-                        "5",
-                        "6"});
+                        "1f9b3c51-a657-4eb7-aab1-1dcb459345b3",
+                        "3a1d8302-b333-47c7-a3ae-eb4516b23c8e"});
             table3.AddRow(new string[] {
-                        "6",
-                        "4"});
-#line 22
+                        "f38ed952-a262-47cf-8c49-46f78c0b36ca",
+                        "5b0f5e44-c20c-43eb-a57e-f81a468116f2"});
+#line 26
         testRunner.And("that the users have the following access groups", ((string)(null)), table3, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "DomainId",
-                        "DomainName"});
+                        "FolderId",
+                        "FolderName",
+                        "FolderDescription",
+                        "ParentId",
+                        "OwnerId"});
             table4.AddRow(new string[] {
-                        "1",
-                        "Sales"});
+                        "cb889bb1-96ae-434e-ab07-bdcb853bccc5",
+                        "SalesArea",
+                        "<null />",
+                        "<null />",
+                        "1407c9e0-1bc9-4e46-b576-984cf7b7038f"});
             table4.AddRow(new string[] {
-                        "2",
-                        "Product"});
-#line 31
-        testRunner.And("that the following domains exists", ((string)(null)), table4, "And ");
+                        "77842885-c2e0-4bdd-9936-0ab7b8eb0a28",
+                        "ProductArea",
+                        "<null />",
+                        "<null />",
+                        "1407c9e0-1bc9-4e46-b576-984cf7b7038f"});
+            table4.AddRow(new string[] {
+                        "5c00286f-b936-4784-9795-0b331d43baf4",
+                        "SalesItems",
+                        "A folder that holds items for sales",
+                        "cb889bb1-96ae-434e-ab07-bdcb853bccc5",
+                        "306c64f1-49f1-4e4c-ad80-875d753b7192"});
+#line 35
+        testRunner.And("that the following folders exists", ((string)(null)), table4, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "DomainId",
+                        "FolderId",
                         "AccessGroupId",
                         "AccessRight"});
             table5.AddRow(new string[] {
-                        "1",
-                        "1",
+                        "cb889bb1-96ae-434e-ab07-bdcb853bccc5",
+                        "ec425f3b-ee49-40c1-b8fc-d5c7cc4a8910",
                         "-R--"});
             table5.AddRow(new string[] {
-                        "1",
-                        "2",
+                        "cb889bb1-96ae-434e-ab07-bdcb853bccc5",
+                        "51848b79-eba9-499e-946c-a71598e560ed",
                         "CRUD"});
             table5.AddRow(new string[] {
-                        "1",
-                        "3",
-                        "CRUD"});
-            table5.AddRow(new string[] {
-                        "1",
-                        "4",
+                        "77842885-c2e0-4bdd-9936-0ab7b8eb0a28",
+                        "28325e81-d6ea-4c52-8df4-ca068f343809",
                         "-R--"});
             table5.AddRow(new string[] {
-                        "2",
-                        "3",
+                        "77842885-c2e0-4bdd-9936-0ab7b8eb0a28",
+                        "3a1d8302-b333-47c7-a3ae-eb4516b23c8e",
                         "CRUD"});
-            table5.AddRow(new string[] {
-                        "2",
-                        "4",
-                        "-R--"});
-            table5.AddRow(new string[] {
-                        "2",
-                        "5",
-                        "-R--"});
-            table5.AddRow(new string[] {
-                        "2",
-                        "6",
-                        "CRUD"});
-#line 35
-        testRunner.And("that the following access groups can access the domains", ((string)(null)), table5, "And ");
+#line 40
+        testRunner.And("that the following access groups can access the folders", ((string)(null)), table5, "And ");
 #line hidden
         }
         
@@ -225,55 +238,48 @@ namespace StringManager.API.Specs.Features
         [Xunit.InlineDataAttribute("1", "2", new string[0])]
         [Xunit.InlineDataAttribute("3", "1", new string[0])]
         [Xunit.InlineDataAttribute("5", "2", new string[0])]
-        public virtual void CreateANewFolderInOneOfTheUsersAvailableDomains(string userid, string domainid, string[] exampleTags)
+        public void CreateANewFolderInOneOfTheUsersAvailableDomains(string userid, string domainid, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("userid", userid);
             argumentsOfScenario.Add("domainid", domainid);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new folder in one of the users available domains", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 46
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new folder in one of the users available domains", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 47
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
             else
             {
                 this.ScenarioStart();
-#line 3
+#line 6
     this.FeatureBackground();
 #line hidden
-#line 47
+#line 48
         testRunner.Given(string.Format("that the user \"{0}\" wants to add a new folder to the domain \"{1}\"", userid, domainid), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Description"});
                 table6.AddRow(new string[] {
-                            "NewFolder",
-                            "A description for this folder"});
-#line 48
+                            "New folder",
+                            "A description for this folder."});
+#line 49
         testRunner.And("that the user enters the following information about the folder", ((string)(null)), table6, "And ");
 #line hidden
-#line 51
+#line 52
         testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 52
+#line 53
         testRunner.Then("the new folder is created with expected information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 53
+#line 54
+        testRunner.And(string.Format("the user with id \"{0}\" is set as the folders owner", userid), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 55
         testRunner.And("the user gets the http status code \"201 Created\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
@@ -283,9 +289,222 @@ namespace StringManager.API.Specs.Features
                 table7.AddRow(new string[] {
                             "<GUID />",
                             "NewFolder",
-                            "A description for this folder"});
-#line 54
+                            "A description for this folder."});
+#line 56
         testRunner.And("the following information about the folder is returned", ((string)(null)), table7, "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Create a new folder with a specific access group")]
+        [Xunit.TraitAttribute("FeatureTitle", "Create_Folder_In_Domain")]
+        [Xunit.TraitAttribute("Description", "Create a new folder with a specific access group")]
+        public void CreateANewFolderWithASpecificAccessGroup()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new folder with a specific access group", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 67
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+    this.FeatureBackground();
+#line hidden
+#line 68
+        testRunner.Given("that the user \"1\" wants to add a new folder to the domain \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Name",
+                            "Description"});
+                table8.AddRow(new string[] {
+                            "SalesUsersFolder",
+                            "A description for the sales users folder."});
+#line 69
+        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table8, "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                            "AccessGroupId",
+                            "AccessType"});
+                table9.AddRow(new string[] {
+                            "7",
+                            "-R--"});
+                table9.AddRow(new string[] {
+                            "8",
+                            "CRUD"});
+#line 72
+        testRunner.And("that the user adds the following access groups", ((string)(null)), table9, "And ");
+#line hidden
+#line 76
+        testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 77
+        testRunner.Then("the new folder is created with the expected information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 78
+        testRunner.And("the user with id \"<userid>\" is set as the folders owner", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                            "AccessGroupId",
+                            "AccessType"});
+                table10.AddRow(new string[] {
+                            "7",
+                            "-R--"});
+                table10.AddRow(new string[] {
+                            "8",
+                            "CRUD"});
+#line 79
+        testRunner.And("the folder has the following access groups", ((string)(null)), table10, "And ");
+#line hidden
+#line 83
+        testRunner.And("the user gets the http status code \"201 Created\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Id",
+                            "Name",
+                            "Description"});
+                table11.AddRow(new string[] {
+                            "<GUID />",
+                            "SalesUsersFolder",
+                            "A description for the sales users folder."});
+#line 84
+        testRunner.And("the following information about the folder is returned", ((string)(null)), table11, "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Create a new folder in domain the user has access to without any access group")]
+        [Xunit.TraitAttribute("FeatureTitle", "Create_Folder_In_Domain")]
+        [Xunit.TraitAttribute("Description", "Create a new folder in domain the user has access to without any access group")]
+        public void CreateANewFolderInDomainTheUserHasAccessToWithoutAnyAccessGroup()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new folder in domain the user has access to without any access group", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 88
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+    this.FeatureBackground();
+#line hidden
+#line 89
+        testRunner.Given("that the user \"3\" wants to add a new folder to the domain \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Name",
+                            "Description"});
+                table12.AddRow(new string[] {
+                            "SalesUsersFolder",
+                            "A description for the sales users folder."});
+#line 90
+        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table12, "And ");
+#line hidden
+#line 93
+        testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 94
+        testRunner.Then("the new folder is created with the expected information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 95
+        testRunner.And("the user with id \"3\" is set as the folders owner", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 96
+        testRunner.And("the folder has no access groups", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 97
+        testRunner.And("the user gets the http status code \"201 Created\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Id",
+                            "Name",
+                            "Description"});
+                table13.AddRow(new string[] {
+                            "<GUID />",
+                            "SalesUsersFolder",
+                            "A description for the sales users folder."});
+#line 98
+        testRunner.And("the following information about the folder is returned", ((string)(null)), table13, "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Create a new folder with a child access group when the user has the parent access" +
+            " group")]
+        [Xunit.TraitAttribute("FeatureTitle", "Create_Folder_In_Domain")]
+        [Xunit.TraitAttribute("Description", "Create a new folder with a child access group when the user has the parent access" +
+            " group")]
+        public void CreateANewFolderWithAChildAccessGroupWhenTheUserHasTheParentAccessGroup()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new folder with a child access group when the user has the parent access" +
+                    " group", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 102
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+    this.FeatureBackground();
+#line hidden
+#line 103
+        testRunner.Given("that the user \"1\" wants to add a new folder to the domain \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Name",
+                            "Description"});
+                table14.AddRow(new string[] {
+                            "SalesUsersFolder",
+                            "A description for the sales users folder."});
+#line 104
+        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table14, "And ");
+#line hidden
+#line 107
+        testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 108
+        testRunner.Then("the new folder is created with the expected information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 109
+        testRunner.And("the user with id \"3\" is set as the folders owner", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 110
+        testRunner.And("the folder has no access groups", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 111
+        testRunner.And("the user gets the http status code \"201 Created\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Id",
+                            "Name",
+                            "Description"});
+                table15.AddRow(new string[] {
+                            "<GUID />",
+                            "SalesUsersFolder",
+                            "A description for the sales users folder."});
+#line 112
+        testRunner.And("the following information about the folder is returned", ((string)(null)), table15, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -302,158 +521,58 @@ namespace StringManager.API.Specs.Features
         [Xunit.InlineDataAttribute("5", "1", new string[0])]
         [Xunit.InlineDataAttribute("6", "1", new string[0])]
         [Xunit.InlineDataAttribute("6", "2", new string[0])]
-        public virtual void CreateANewFolderWithAUserThatDoesNotHaveCreateAccess(string userid, string domainid, string[] exampleTags)
+        public void CreateANewFolderWithAUserThatDoesNotHaveCreateAccess(string userid, string domainid, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("userid", userid);
             argumentsOfScenario.Add("domainid", domainid);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new folder with a user that does not have create access", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 65
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new folder with a user that does not have create access", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 116
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
             else
             {
                 this.ScenarioStart();
-#line 3
+#line 6
     this.FeatureBackground();
 #line hidden
-#line 66
+#line 117
         testRunner.Given(string.Format("that the user \"{0}\" wants to add a new folder to the domain \"{1}\"", userid, domainid), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Description"});
-                table8.AddRow(new string[] {
+                table16.AddRow(new string[] {
                             "NewFolder",
-                            "A description for this folder"});
-#line 67
-        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table8, "And ");
+                            "A description for this folder."});
+#line 118
+        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table16, "And ");
 #line hidden
-#line 70
+#line 121
         testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 71
+#line 122
         testRunner.Then("no new folder is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 72
+#line 123
         testRunner.And("the user gets the http status code \"401 Unauthorized\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
                             "ProblemType",
                             "Title",
                             "Description"});
-                table9.AddRow(new string[] {
-                            "UnauthorizedUser",
+                table17.AddRow(new string[] {
+                            "Problem.Folder.UnauthorizedUser",
                             "Unauthorized user",
-                            "The user does not have the permissions to complete the action"});
-#line 73
-        testRunner.And("the following problem detail is returned", ((string)(null)), table9, "And ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Create a new folder with a specific access group")]
-        [Xunit.TraitAttribute("FeatureTitle", "Create_Folder_In_Domain")]
-        [Xunit.TraitAttribute("Description", "Create a new folder with a specific access group")]
-        public virtual void CreateANewFolderWithASpecificAccessGroup()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new folder with a specific access group", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 88
-    this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 3
-    this.FeatureBackground();
-#line hidden
-#line 89
-        testRunner.Given("that the user \"1\" wants to add a new folder to the domain \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Name",
-                            "Description"});
-                table10.AddRow(new string[] {
-                            "SalesUsersFolder",
-                            "A description for the sales users folder"});
-#line 90
-        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table10, "And ");
-#line hidden
-                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
-                            "AccessGroupId",
-                            "AccessType"});
-                table11.AddRow(new string[] {
-                            "7",
-                            "-R--"});
-                table11.AddRow(new string[] {
-                            "8",
-                            "CRUD"});
-#line 93
-        testRunner.And("that the user adds the following access groups", ((string)(null)), table11, "And ");
-#line hidden
-#line 97
-        testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 98
-        testRunner.Then("the new folder is created with the expected information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
-                            "AccessGroupId",
-                            "AccessType"});
-                table12.AddRow(new string[] {
-                            "7",
-                            "-R--"});
-                table12.AddRow(new string[] {
-                            "8",
-                            "CRUD"});
-#line 99
-        testRunner.And("the folder has the following access groups", ((string)(null)), table12, "And ");
-#line hidden
-#line 103
-        testRunner.And("the user gets the http status code \"201 Created\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-                TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Id",
-                            "Name",
-                            "Description"});
-                table13.AddRow(new string[] {
-                            "<GUID />",
-                            "SalesUsersFolder",
-                            "A description for the sales users folder"});
-#line 104
-        testRunner.And("the following information about the folder is returned", ((string)(null)), table13, "And ");
+                            "The user does not have the permissions to create a new folder in the selected dom" +
+                                "ain."});
+#line 124
+        testRunner.And("the following problem detail is returned", ((string)(null)), table17, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -464,51 +583,66 @@ namespace StringManager.API.Specs.Features
         [Xunit.TraitAttribute("FeatureTitle", "Create_Folder_In_Domain")]
         [Xunit.TraitAttribute("Description", "Create a new folder with a specific access group that the user does not have acce" +
             "ss to")]
-        public virtual void CreateANewFolderWithASpecificAccessGroupThatTheUserDoesNotHaveAccessTo()
+        public void CreateANewFolderWithASpecificAccessGroupThatTheUserDoesNotHaveAccessTo()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new folder with a specific access group that the user does not have acce" +
-                    "ss to", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 108
+                    "ss to", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 139
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
             else
             {
                 this.ScenarioStart();
-#line 3
+#line 6
     this.FeatureBackground();
 #line hidden
-#line 109
-        testRunner.Given("that the user \"3\" wants to add a new folder to the domain \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 140
+        testRunner.Given("that the user \"3\" wants to add a new folder to the domain \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
-                            "Description",
-                            "AccessGroup"});
-                table14.AddRow(new string[] {
+                            "Description"});
+                table18.AddRow(new string[] {
                             "NewFolder",
-                            "A description for this folder",
-                            ""});
-#line 110
-        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table14, "And ");
+                            "A description for this folder."});
+#line 141
+        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table18, "And ");
 #line hidden
-#line 113
+                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                            "AccessGroupId",
+                            "AccessType"});
+                table19.AddRow(new string[] {
+                            "9",
+                            "CRUD"});
+#line 144
+        testRunner.And("that the user adds the following access groups", ((string)(null)), table19, "And ");
+#line hidden
+#line 147
         testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 148
+        testRunner.Then("no new folder is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 149
+        testRunner.And("the user gets the http status code \"401 Unauthorized\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                            "ProblemType",
+                            "Title",
+                            "Description"});
+                table20.AddRow(new string[] {
+                            "Problem.Folder.UnauthorizedUserForAccessGroup",
+                            "Unauthorized user",
+                            "The user does not have the permissions create a folder within the selected domain" +
+                                "."});
+#line 150
+        testRunner.And("the following problem detail is returned", ((string)(null)), table20, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -517,67 +651,162 @@ namespace StringManager.API.Specs.Features
         [Xunit.SkippableFactAttribute(DisplayName="Create a new folder with the same name as an existing folder")]
         [Xunit.TraitAttribute("FeatureTitle", "Create_Folder_In_Domain")]
         [Xunit.TraitAttribute("Description", "Create a new folder with the same name as an existing folder")]
-        public virtual void CreateANewFolderWithTheSameNameAsAnExistingFolder()
+        public void CreateANewFolderWithTheSameNameAsAnExistingFolder()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new folder with the same name as an existing folder", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 116
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new folder with the same name as an existing folder", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 154
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
             else
             {
                 this.ScenarioStart();
-#line 3
+#line 6
     this.FeatureBackground();
+#line hidden
+#line 155
+        testRunner.Given("that the user \"1\" wants to add a new folder to the domain \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Name",
+                            "Description"});
+                table21.AddRow(new string[] {
+                            "SalesItems",
+                            "A folder that holds sales information."});
+#line 156
+        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table21, "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
+                            "AccessGroupId",
+                            "AccessType"});
+                table22.AddRow(new string[] {
+                            "9",
+                            "CRUD"});
+#line 159
+        testRunner.And("that the user adds the following access groups", ((string)(null)), table22, "And ");
+#line hidden
+#line 162
+        testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 163
+        testRunner.Then("no new folder is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 164
+        testRunner.And("the user gets the http status code \"400 Bad Request\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
+                            "ProblemType",
+                            "Title",
+                            "Description"});
+                table23.AddRow(new string[] {
+                            "Problem.Folder.ExistingFolderName",
+                            "Folder name exists",
+                            "A folder with the requested name already exists."});
+#line 165
+        testRunner.And("the following problem detail is returned", ((string)(null)), table23, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Create a new folder with an invalid folder name")]
+        [Xunit.SkippableTheoryAttribute(DisplayName="Create a new folder with an invalid folder name")]
         [Xunit.TraitAttribute("FeatureTitle", "Create_Folder_In_Domain")]
         [Xunit.TraitAttribute("Description", "Create a new folder with an invalid folder name")]
-        public virtual void CreateANewFolderWithAnInvalidFolderName()
+        [Xunit.InlineDataAttribute("name\\this", new string[0])]
+        [Xunit.InlineDataAttribute("<empty />", new string[0])]
+        [Xunit.InlineDataAttribute("\"a name contains \"", new string[0])]
+        [Xunit.InlineDataAttribute("\'thenamewith\'", new string[0])]
+        [Xunit.InlineDataAttribute("`namesurroundedwith`", new string[0])]
+        public void CreateANewFolderWithAnInvalidFolderName(string invalidFolderName, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new folder with an invalid folder name", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 118
+            argumentsOfScenario.Add("invalidFolderName", invalidFolderName);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new folder with an invalid folder name", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 169
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
             else
             {
                 this.ScenarioStart();
-#line 3
+#line 6
+    this.FeatureBackground();
+#line hidden
+#line 170
+        testRunner.Given("that the user \"1\" wants to add a new folder to the domain \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Name",
+                            "Description"});
+                table24.AddRow(new string[] {
+                            string.Format("{0}", invalidFolderName),
+                            "A description for this folder."});
+#line 171
+        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table24, "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
+                            "AccessGroupId",
+                            "AccessType"});
+                table25.AddRow(new string[] {
+                            "9",
+                            "CRUD"});
+#line 174
+        testRunner.And("that the user adds the following access groups", ((string)(null)), table25, "And ");
+#line hidden
+#line 177
+        testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 178
+        testRunner.Then("no new folder is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 179
+        testRunner.And("the user gets the http status code \"401 Unauthorized\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
+                            "ProblemType",
+                            "Title",
+                            "Description"});
+                table26.AddRow(new string[] {
+                            "Problem.Folder.InvalidFolderName",
+                            "Invalid folder name",
+                            "The name entered for the folder is invalid."});
+#line 180
+        testRunner.And("the following problem detail is returned", ((string)(null)), table26, "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Create sub folder to existing folder")]
+        [Xunit.TraitAttribute("FeatureTitle", "Create_Folder_In_Domain")]
+        [Xunit.TraitAttribute("Description", "Create sub folder to existing folder")]
+        [Xunit.TraitAttribute("Category", "mvp2")]
+        public void CreateSubFolderToExistingFolder()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "mvp2"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create sub folder to existing folder", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 193
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
     this.FeatureBackground();
 #line hidden
             }

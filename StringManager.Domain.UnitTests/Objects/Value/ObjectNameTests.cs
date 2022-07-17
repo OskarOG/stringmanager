@@ -1,4 +1,5 @@
 using FluentAssertions;
+using StringManager.Domain.Objects.Infrastructure;
 using StringManager.Domain.Objects.Value;
 using StringManager.TestHelpers.Fixtures;
 using Xunit;
@@ -23,7 +24,7 @@ public class ObjectNameTests
     public void NotEqualOperator_WithEqualValues_ShouldEvaluateToFalse(ObjectName left)
     {
         // Arrange
-        var right = new ObjectName(left.Value);
+        var right = ObjectName.Create(left.Value).Value;
         
         // Act
         var result = left != right;
@@ -49,7 +50,7 @@ public class ObjectNameTests
         ObjectName left)
     {
         // Arrange
-        var right = new ObjectName(left.Value);
+        var right = ObjectName.Create(left.Value).Value;
         
         // Act
         var result = left == right;
@@ -59,12 +60,25 @@ public class ObjectNameTests
     }
 
     [Theory, DomainAutoData]
-    public void Constructor_WithValidValues_SetsExpectedProperties(ObjectName val)
+    public void Create_WithValidValues_SetsExpectedProperties(ObjectName val)
     {
         // Act
-        var result = new ObjectName(val.Value);
+        var result = ObjectName.Create(val.Value).Value;
         
         // Assert
         result.Value.Should().Be(val.Value);
+    }
+
+    [Fact]
+    public void Create_WithInvalidValue_ReturnsExpectedProblemType()
+    {
+        // Act
+        var result = ObjectName.Create(null!);
+        
+        // Assert
+        result.IsFailure.Should().BeTrue();
+        result.IsSuccess.Should().BeFalse();
+        result.Error.IsException.Should().BeFalse();
+        result.Error.ProblemType.Should().Be(ProblemType.InvalidObjectName);
     }
 }

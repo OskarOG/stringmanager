@@ -19,12 +19,25 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="FluentAssertions" Version="6.2.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\StringManager.Infrastructure\StringManager.Infrastructure.csproj" />
       <ProjectReference Include="..\StringManager.TestHelpers\StringManager.TestHelpers.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Features\UserManagement\CreateUser.feature.cs">
+        <DependentUpon>CreateUser.feature</DependentUpon>
+        <AutoGen>true</AutoGen>
+        <DesignTime>true</DesignTime>
+        <Visible>true</Visible>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Features\Admin" />
+      <Folder Include="Features\Folder" />
     </ItemGroup>
 
 </Project>

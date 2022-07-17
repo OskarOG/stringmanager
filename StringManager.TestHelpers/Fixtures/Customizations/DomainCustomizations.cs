@@ -7,7 +7,11 @@ public class DomainCustomizations : CompositeCustomization
 {
     public DomainCustomizations()
         : base(
-            new AutoNSubstituteCustomization())
+            new AutoNSubstituteCustomization(),
+            new PasswordCustomization(),
+            new EmailCustomization(),
+            new FolderDescriptionCustomization(),
+            new ObjectNameCustomization())
     {
     }
 }

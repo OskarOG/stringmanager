@@ -6,7 +6,7 @@ using StringManager.Infrastructure.Persistence;
 
 namespace StringManager.API.Specs.Drivers;
 
-public class DatabaseDriver
+public class DatabaseDriver : IDatabaseDriver
 {
     private readonly StringManagerDbContext _dbContext;
     private readonly IFixture _fixture;
@@ -28,9 +28,9 @@ public class DatabaseDriver
             userSet.Add(
                 new User(
                     existingUserRow.UserId,
-                    new Email(existingUserRow.Email),
+                    Email.Create(existingUserRow.Email).Value,
                     UserRoleType.User,
-                    Password.NewPassword(_fixture.Create<string>())));
+                    Password.NewPassword(_fixture.Create<string>()).Value));
         }
 
         await _dbContext.SaveChangesAsync();
@@ -60,7 +60,7 @@ public class DatabaseDriver
             accessGroupSet.Add(
                 new AccessGroup(
                     accessGroupRow.AccessGroupId,
-                    new ObjectName(accessGroupRow.AccessGroupName)));
+                    ObjectName.Create(accessGroupRow.AccessGroupName).Value));
         }
 
         await _dbContext.SaveChangesAsync();

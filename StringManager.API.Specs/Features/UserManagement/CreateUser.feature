@@ -29,13 +29,13 @@ After that it is possible to select the role for the user
       And want to create a new user with the following information
         | Email              | Password | RoleType |
         | testuser@email.com | abc123   | User     |
-      And that the should be included in the following access groups
+      And that the new user should be included in the following access groups
         | AccessGroupId                        |
         | 4605a27b-6f86-47c3-ac1a-547aa1b01fe3 |
         | ec77e8bf-f31b-411b-8942-6cfcce1266e7 |
-      When the create user post request is sent
+      When the new user request is sent
       Then the new user is created with the expected information
-      And the new users id "<GUID />" is returned
+      And the new users id is returned
       And the http status code "201 Created" is returned
 
    ## The difference between these two scenarios is the role of the user calling the API, both should be able to create the user.
@@ -50,9 +50,9 @@ After that it is possible to select the role for the user
       And want to create a new user with the following information
         | Email              | Password | RoleType      |
         | testuser@email.com | abc123   | Administrator |
-      When the create user post request is sent
+      When the new user request is sent
       Then the new user is created with the expected information
-      And the new users id "<GUID />" is returned
+      And the new users id is returned
       And the http status code "201 Created" is returned
 
    @ResourceCreation
@@ -61,13 +61,13 @@ After that it is possible to select the role for the user
       And want to create a new user with the following information
         | Email              | Password | RoleType  |
         | testuser@email.com | abc123   | UserAdmin |
-      And that the should be included in the following access groups
+      And that the new user should be included in the following access groups
         | AccessGroupId                        |
         | 4605a27b-6f86-47c3-ac1a-547aa1b01fe3 |
         | ec77e8bf-f31b-411b-8942-6cfcce1266e7 |
-      When the create user post request is sent
+      When the new user request is sent
       Then the new user is created with the expected information
-      And the new users id "<GUID />" is returned
+      And the new users id is returned
       And the http status code "201 Created" is returned
 
    @ResourceCreation
@@ -76,13 +76,13 @@ After that it is possible to select the role for the user
       And want to create a new user with the following information
         | Email              | Password | RoleType  |
         | testuser@email.com | abc123   | UserAdmin |
-      And that the should be included in the following access groups
+      And that the new user should be included in the following access groups
         | AccessGroupId                        |
         | 4605a27b-6f86-47c3-ac1a-547aa1b01fe3 |
         | ec77e8bf-f31b-411b-8942-6cfcce1266e7 |
-      When the create user post request is sent
+      When the new user request is sent
       Then the new user is created with the expected information
-      And the new users id "<GUID />" is returned
+      And the new users id is returned
       And the http status code "201 Created" is returned
 
    @ResourceCreation
@@ -91,9 +91,9 @@ After that it is possible to select the role for the user
       And want to create a new user with the following information
         | Email              | Password | RoleType    |
         | testuser@email.com | abc123   | FolderAdmin |
-      When the create user post request is sent
+      When the new user request is sent
       Then the new user is created with the expected information
-      And the new users id "<GUID />" is returned
+      And the new users id is returned
       And the http status code "201 Created" is returned
 
    @BusinessRuleError
@@ -102,11 +102,11 @@ After that it is possible to select the role for the user
       And want to create a new user with the following information
         | Email              | Password | RoleType      |
         | testuser@email.com | abc123   | Administrator |
-      And that the should be included in the following access groups
+      And that the new user should be included in the following access groups
         | AccessGroupId                        |
         | 4605a27b-6f86-47c3-ac1a-547aa1b01fe3 |
         | ec77e8bf-f31b-411b-8942-6cfcce1266e7 |
-      When the create user post request is sent
+      When the new user request is sent
       Then a new user is not created
       And the http status code "400 Bad Request" is returned
       And the following problem detail is returned
@@ -119,11 +119,11 @@ After that it is possible to select the role for the user
       And want to create a new user with the following information
         | Email              | Password | RoleType |
         | testuser@email.com | abc123   | User     |
-      And that the should be included in the following access groups
+      And that the new user should be included in the following access groups
         | AccessGroupId                        |
         | 4605a27b-6f86-47c3-ac1a-547aa1b01fe3 |
         | ec77e8bf-f31b-411b-8942-6cfcce1266e7 |
-      When the create user post request is sent
+      When the new user request is sent
       Then a new user is not created
       And the http status code "400 Bad Request" is returned
       And the following problem detail is returned
@@ -136,11 +136,11 @@ After that it is possible to select the role for the user
       And want to create a new user with the following information
         | Email                 | Password | RoleType |
         | folderadmin@email.com | abc123   | User     |
-      And that the should be included in the following access groups
+      And that the new user should be included in the following access groups
         | AccessGroupId                        |
         | 4605a27b-6f86-47c3-ac1a-547aa1b01fe3 |
         | ec77e8bf-f31b-411b-8942-6cfcce1266e7 |
-      When the create user post request is sent
+      When the new user request is sent
       Then a new user is not created
       And the http status code "400 Bad Request" is returned
       And the following problem detail is returned
@@ -153,11 +153,11 @@ After that it is possible to select the role for the user
       And want to create a new user with the following information
         | Email          | Password | RoleType |
         | <invalidEmail> | abc123   | User     |
-      And that the should be included in the following access groups
+      And that the new user should be included in the following access groups
         | AccessGroupId                        |
         | 4605a27b-6f86-47c3-ac1a-547aa1b01fe3 |
         | ec77e8bf-f31b-411b-8942-6cfcce1266e7 |
-      When the create user post request is sent
+      When the new user request is sent
       Then a new user is not created
       And the http status code "400 Bad Request" is returned
       And the following problem detail is returned
@@ -180,11 +180,11 @@ After that it is possible to select the role for the user
       And want to create a new user with the following information
         | Email          | Password          | RoleType |
         | test@email.com | <invalidPassword> | User     |
-      And that the should be included in the following access groups
+      And that the new user should be included in the following access groups
         | AccessGroupId                        |
         | 4605a27b-6f86-47c3-ac1a-547aa1b01fe3 |
         | ec77e8bf-f31b-411b-8942-6cfcce1266e7 |
-      When the create user post request is sent
+      When the new user request is sent
       Then a new user is not created
       And the http status code "400 Bad Request" is returned
       And the following problem detail is returned
@@ -207,11 +207,11 @@ After that it is possible to select the role for the user
       And want to create a new user with the following information
         | Email          | Password          | RoleType |
         | test@email.com | <invalidPassword> | User     |
-      And that the should be included in the following access groups
+      And that the new user should be included in the following access groups
         | AccessGroupId                        |
         | 4605a27b-6f86-47c3-ac1a-547aa1b01fe3 |
         | 8c9e47e5-b2ec-4818-8fe8-35241e3d26fb |
-      When the create user post request is sent
+      When the new user request is sent
       Then a new user is not created
       And the http status code "400 Bad Request" is returned
       And the following problem detail is returned
@@ -220,17 +220,17 @@ After that it is possible to select the role for the user
 
    @AuthenticationError
    Scenario: User that is not signed in tries to create a new user
-     Given that the user "616aba5c-e933-4b22-a383-93aea94379b4" is not signed in
-     And want to create a new user with the following information
-       | Email          | Password          | RoleType |
-       | test@email.com | <invalidPassword> | User     |
-     And that the should be included in the following access groups
-       | AccessGroupId                        |
-       | 4605a27b-6f86-47c3-ac1a-547aa1b01fe3 |
-       | 8c9e47e5-b2ec-4818-8fe8-35241e3d26fb |
-     When the create user post request is sent
-     Then a new user is not created
-     And the http status code "401 Unauthorized" is returned
-     And the following problem detail is returned
-       | ProblemType        | Title          | Detail                                         | HttpStatus |
-       | UnauthorizedAction | Not authorized | You are not authorized to perform this action. | 401        |
+      Given that no user is signed in
+      And want to create a new user with the following information
+        | Email          | Password          | RoleType |
+        | test@email.com | <invalidPassword> | User     |
+      And that the new user should be included in the following access groups
+        | AccessGroupId                        |
+        | 4605a27b-6f86-47c3-ac1a-547aa1b01fe3 |
+        | 8c9e47e5-b2ec-4818-8fe8-35241e3d26fb |
+      When the new user request is sent
+      Then a new user is not created
+      And the http status code "401 Unauthorized" is returned
+      And the following problem detail is returned
+        | ProblemType        | Title          | Detail                                         | HttpStatus |
+        | UnauthorizedAction | Not authorized | You are not authorized to perform this action. | 401        |

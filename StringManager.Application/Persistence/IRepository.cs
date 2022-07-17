@@ -23,6 +23,10 @@ public interface IRepository<TEntity> where TEntity : class
     
     // TODO: Create a way to use expression for include properties
     // params Expression<Func<TEntity, TProperty>>[] includeProperties 
+
+    Task<TEntity> GetSingleAsync(
+        Expression<Func<TEntity, bool>> filter,
+        params string[] includeProperties);
     
     TEntity Insert(TEntity entity);
 

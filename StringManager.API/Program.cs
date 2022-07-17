@@ -25,8 +25,16 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+// app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
+
+
+/// <summary>
+/// This is required so that the StringManagerWebApiFactory is able to access and use Program as startup class.
+/// </summary>
+public partial class Program
+{
+}

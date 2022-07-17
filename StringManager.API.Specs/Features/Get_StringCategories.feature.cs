@@ -24,7 +24,7 @@ namespace StringManager.API.Specs.Features
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = ((string[])(null));
+        private static string[] featureTags = ((string[])(null));
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
@@ -40,7 +40,7 @@ namespace StringManager.API.Specs.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Get_StringCategories", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Get_StringCategories", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -50,27 +50,27 @@ namespace StringManager.API.Specs.Features
             testRunner = null;
         }
         
-        public virtual void TestInitialize()
+        public void TestInitialize()
         {
         }
         
-        public virtual void TestTearDown()
+        public void TestTearDown()
         {
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
+        public void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
             testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<Xunit.Abstractions.ITestOutputHelper>(_testOutputHelper);
         }
         
-        public virtual void ScenarioStart()
+        public void ScenarioStart()
         {
             testRunner.OnScenarioStart();
         }
         
-        public virtual void ScenarioCleanup()
+        public void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
@@ -79,56 +79,56 @@ namespace StringManager.API.Specs.Features
         {
 #line 3
     #line hidden
-            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
                         "AccessGroup",
                         "Id",
                         "Name",
                         "Description",
                         "AmountOfItemsInCategory"});
-            table15.AddRow(new string[] {
+            table27.AddRow(new string[] {
                         "basic-list",
                         "1",
                         "BasicList",
                         "A basic list",
                         "100"});
-            table15.AddRow(new string[] {
+            table27.AddRow(new string[] {
                         "special-list",
                         "2",
                         "SpecialList",
                         "A special list",
                         "5"});
 #line 4
-        testRunner.Given("that we have the following categories", ((string)(null)), table15, "Given ");
+        testRunner.Given("that we have the following categories", ((string)(null)), table27, "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
                         "CategoryId",
                         "Tag"});
-            table16.AddRow(new string[] {
+            table28.AddRow(new string[] {
                         "1",
                         "Basic"});
-            table16.AddRow(new string[] {
+            table28.AddRow(new string[] {
                         "1",
                         "CustomTag"});
-            table16.AddRow(new string[] {
+            table28.AddRow(new string[] {
                         "2",
                         "Special"});
 #line 8
-        testRunner.And("that the categories have the following tags", ((string)(null)), table16, "And ");
+        testRunner.And("that the categories have the following tags", ((string)(null)), table28, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
                         "Username",
                         "AccessGroup"});
-            table17.AddRow(new string[] {
+            table29.AddRow(new string[] {
                         "basicUser",
                         "basic-list-r"});
-            table17.AddRow(new string[] {
+            table29.AddRow(new string[] {
                         "adminUser",
                         "basic-list-crud"});
-            table17.AddRow(new string[] {
+            table29.AddRow(new string[] {
                         "newUser",
                         "new-list-r"});
 #line 13
-        testRunner.And("that the users have the following access groups", ((string)(null)), table17, "And ");
+        testRunner.And("that the users have the following access groups", ((string)(null)), table29, "And ");
 #line hidden
         }
         
@@ -142,27 +142,17 @@ namespace StringManager.API.Specs.Features
         [Xunit.TraitAttribute("Description", "Get all available categories for a user with read access to the category")]
         [Xunit.InlineDataAttribute("basicUser", "basic-list-r", new string[0])]
         [Xunit.InlineDataAttribute("adminUser", "basic-list-crud", new string[0])]
-        public virtual void GetAllAvailableCategoriesForAUserWithReadAccessToTheCategory(string currentUser, string accessGroup, string[] exampleTags)
+        public void GetAllAvailableCategoriesForAUserWithReadAccessToTheCategory(string currentUser, string accessGroup, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("currentUser", currentUser);
             argumentsOfScenario.Add("accessGroup", accessGroup);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get all available categories for a user with read access to the category", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get all available categories for a user with read access to the category", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 19
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -191,25 +181,15 @@ namespace StringManager.API.Specs.Features
         [Xunit.SkippableFactAttribute(DisplayName="Get all categories when there is no categories available to the user")]
         [Xunit.TraitAttribute("FeatureTitle", "Get_StringCategories")]
         [Xunit.TraitAttribute("Description", "Get all categories when there is no categories available to the user")]
-        public virtual void GetAllCategoriesWhenThereIsNoCategoriesAvailableToTheUser()
+        public void GetAllCategoriesWhenThereIsNoCategoriesAvailableToTheUser()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get all categories when there is no categories available to the user", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get all categories when there is no categories available to the user", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 30
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -238,25 +218,15 @@ namespace StringManager.API.Specs.Features
         [Xunit.SkippableFactAttribute(DisplayName="Get all categories for invalid user")]
         [Xunit.TraitAttribute("FeatureTitle", "Get_StringCategories")]
         [Xunit.TraitAttribute("Description", "Get all categories for invalid user")]
-        public virtual void GetAllCategoriesForInvalidUser()
+        public void GetAllCategoriesForInvalidUser()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get all categories for invalid user", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get all categories for invalid user", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 36
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -272,16 +242,16 @@ namespace StringManager.API.Specs.Features
 #line 38
         testRunner.When("the api gets the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
                             "ProblemType",
                             "Title",
                             "Detail"});
-                table18.AddRow(new string[] {
+                table30.AddRow(new string[] {
                             "InvalidUserName",
                             "Invalid user",
                             "The user specified in the request is invalid"});
 #line 39
-        testRunner.Then("the following problem detail is returned", ((string)(null)), table18, "Then ");
+        testRunner.Then("the following problem detail is returned", ((string)(null)), table30, "Then ");
 #line hidden
 #line 42
         testRunner.And("the response has the http status code \"400 Bad Request\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

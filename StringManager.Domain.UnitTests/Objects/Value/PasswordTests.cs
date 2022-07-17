@@ -1,4 +1,6 @@
+using AutoFixture.Xunit2;
 using FluentAssertions;
+using StringManager.Domain.Objects.Infrastructure;
 using StringManager.Domain.Objects.Value;
 using StringManager.TestHelpers.Fixtures;
 using Xunit;
@@ -9,27 +11,21 @@ public class PasswordTests
 {
     [Theory, DomainAutoData]
     public void NotEqualOperator_WithUnequalValues_ShouldEvaluateToTrue(
-        string left,
-        string right)
+        Password left,
+        Password right)
     {
-        // Arrange
-        var leftPassword = Password.NewPassword(left);
-        var rightPassword = Password.NewPassword(right);
-        
         // Act
-        var result = leftPassword != rightPassword;
+        var result = left != right;
 
         // Assert
         result.Should().BeTrue();
     }
 
-    [Theory(Skip = "Invalid for now, fix the operator"), DomainAutoData]
-    public void NotEqualOperator_WithEqualValues_ShouldEvaluateToFalse(string val)
+    [Theory, DomainAutoData]
+    public void NotEqualOperator_WithEqualValues_ShouldEvaluateToFalse(
+        [Frozen] Password leftPassword,
+        Password rightPassword)
     {
-        // Arrange
-        var leftPassword = Password.NewPassword(val);
-        var rightPassword = Password.NewPassword(val);
-        
         // Act
         var result = leftPassword != rightPassword;
         
@@ -39,13 +35,9 @@ public class PasswordTests
 
     [Theory, DomainAutoData]
     public void EqualOperator_WithUnequalValues_ShouldEvaluateToFalse(
-        string left,
-        string right)
+        Password leftPassword,
+        Password rightPassword)
     {
-        // Arrange
-        var leftPassword = Password.NewPassword(left);
-        var rightPassword = Password.NewPassword(right);
-        
         // Act
         var result = leftPassword == rightPassword;
         
@@ -53,13 +45,11 @@ public class PasswordTests
         result.Should().BeFalse();
     }
 
-    [Theory(Skip = "Invalid for now, fix the operator"), DomainAutoData]
-    public void EqualOperator_WithEqualValues_ShouldEvaluateToTrue(string val)
+    [Theory, DomainAutoData]
+    public void EqualOperator_WithEqualValues_ShouldEvaluateToTrue(
+        [Frozen] Password leftPassword,
+        Password rightPassword)
     {
-        // Arrange
-        var leftPassword = Password.NewPassword(val);
-        var rightPassword = Password.NewPassword(val);
-        
         // Act
         var result = leftPassword == rightPassword;
 
@@ -67,21 +57,24 @@ public class PasswordTests
         result.Should().BeTrue();
     }
 
-    [Theory, DomainAutoData]
+    [Theory]
+    [InlineData("HelloWorld123!")]
     public void NewPassword_WithString_HashesPasswordAndSetsExpected(string val)
     {
         // Act
-        var result = Password.NewPassword(val);
+        var result = Password.NewPassword(val).Value;
 
         // Assert
         result.HashedValue.Should().NotBeNull();
+        result.VerifyPassword(val).Should().BeTrue();
     }
 
-    [Theory, DomainAutoData]
+    [Theory]
+    [InlineData("HelloWorld123!")]
     public void VerifyPassword_WithValidPassword_VerifiesToTrue(string pass)
     {
         // Arrange
-        var password = Password.NewPassword(pass);
+        var password = Password.NewPassword(pass).Value;
 
         // Act
         var result = password.VerifyPassword(pass);
@@ -94,12 +87,30 @@ public class PasswordTests
     public void VerifyPassword_WithInvalidPassword_VerifiesToFalse(string leftPass, string rightPass)
     {
         // Arrange
-        var password = Password.NewPassword(leftPass);
+        var password = Password.NewPassword(leftPass).Value;
         
         // Act
         var result = password.VerifyPassword(rightPass);
         
         // Assert
         result.Should().BeFalse();
+    }
+
+    [Theory]
+    [InlineData("hello")]
+    [InlineData("123")]
+    [InlineData("hello12")]
+    [InlineData("helloWorld")]
+    [InlineData("hello12345678999000")]
+    [InlineData("hello12345678999000!!!")]
+    public void NewPassword_WithInvalidString_ReturnsFailedResult(string invalidPassword)
+    {
+        // Act
+        var result = Password.NewPassword(invalidPassword);
+
+        // Assert
+        result.IsFailure.Should().BeTrue();
+        result.IsSuccess.Should().BeFalse();
+        result.Error.ProblemType.Should().Be(ProblemType.InvalidNewPassword);
     }
 }

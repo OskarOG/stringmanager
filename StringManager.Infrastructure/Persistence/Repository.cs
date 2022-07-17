@@ -8,7 +8,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
 {
     private readonly StringManagerDbContext _dbContext;
     private readonly DbSet<TEntity> _dbSet;
-    
+
     public Repository(StringManagerDbContext stringManagerDbContext)
     {
         _dbContext = stringManagerDbContext;
@@ -47,7 +47,15 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
             .FilterIfNotNull(filter)
             .IncludeReferences(includeProperties)
             .ToOrderedListAsync(orderBy);
-    
+
+    public async Task<TEntity> GetSingleAsync(
+        Expression<Func<TEntity, bool>> filter,
+        params string[] includeProperties) =>
+        await _dbSet
+            .Where(filter)
+            .SingleOrDefaultAsync()
+        ?? throw new RepositoryException("No single entity was found for the used filter.");
+
     public TEntity Insert(TEntity entity) => _dbSet.Attach(entity).Entity;
 
     public void Update(TEntity entity)

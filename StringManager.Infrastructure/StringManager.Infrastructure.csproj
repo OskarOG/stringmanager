@@ -21,4 +21,19 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
     </ItemGroup>
 
+    <ItemGroup>
+      <EmbeddedResource Update="Services\ProblemDetailTexts.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>ProblemDetailTexts.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Services\ProblemDetailTexts.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ProblemDetailTexts.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>
