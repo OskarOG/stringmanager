@@ -5,13 +5,11 @@ public class ProblemDetail
     public ProblemDetail(
         string problemType,
         string title,
-        string detail,
-        int? statusCode)
+        string detail)
     {
         ProblemType = problemType;
         Title = title;
         Detail = detail;
-        StatusCode = statusCode;
     }
 
     public string ProblemType { get; }
@@ -19,6 +17,4 @@ public class ProblemDetail
     public string Title { get; }
 
     public string Detail { get; }
-
-    public int? StatusCode { get; }
 }

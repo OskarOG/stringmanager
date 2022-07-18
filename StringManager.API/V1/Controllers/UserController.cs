@@ -2,6 +2,7 @@ using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using StringManager.API.V1.Messages;
 using StringManager.Application.Services.Application;
+using StringManager.Application.Services.Domain;
 using StringManager.Application.Services.Infrastructure;
 using StringManager.Domain.Objects.Infrastructure;
 using StringManager.Domain.Objects.Value;
@@ -54,8 +55,5 @@ public class UserController : ControllerBase
     }
 
     private BadRequestObjectResult CreateBadRequest(Error error) =>
-        BadRequest(
-            _problemDetailFactory.CreateProblemDetail(
-                error.ProblemType,
-                HttpStatusCode.BadRequest));
+        BadRequest(_problemDetailFactory.CreateProblemDetail(error.ProblemType));
 }

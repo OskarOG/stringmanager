@@ -21,11 +21,11 @@ public class ProblemDetailSteps
     public void ThenTheFollowingProblemDetailIsReturned(Table table)
     {
         var expectedProblemDetail = table.CreateInstance<ProblemDetail>();
-        var problemDetail = JsonConvert.DeserializeObject<ProblemDetail>(_httpClientDriver.CurrentStringContent);
+        var problemDetail = JsonConvert.DeserializeObject<ProblemDetail>(_httpClientDriver.CurrentStringContent)
+                            ?? throw new NullReferenceException("Unable to parse json to expected ProblemDetail");
 
         problemDetail.Detail.Should().Be(expectedProblemDetail.Detail);
         problemDetail.Title.Should().Be(expectedProblemDetail.Title);
         problemDetail.ProblemType.Should().Be(expectedProblemDetail.ProblemType);
-        problemDetail.StatusCode.Should().Be(expectedProblemDetail.StatusCode);
     }
 }
