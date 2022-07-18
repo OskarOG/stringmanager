@@ -152,7 +152,7 @@ public class RepositoryTests
         
         // Assert
         result.Should().BeEquivalentTo(testEntity);
-        stringManagerDbContext.Set<Folder>().Should().Contain(testEntity);
+        stringManagerDbContext.Set<Folder>().AsEnumerable().Should().Contain(testEntity);
     }
 
     [Theory, AutoDataWithInMemoryDb]

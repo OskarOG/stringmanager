@@ -56,7 +56,12 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
             .SingleOrDefaultAsync()
         ?? throw new RepositoryException("No single entity was found for the used filter.");
 
-    public TEntity Insert(TEntity entity) => _dbSet.Attach(entity).Entity;
+    public TEntity Insert(TEntity entity)
+    {
+        _dbSet.Attach(entity);
+        _dbContext.Entry(entity).State = EntityState.Added;
+        return entity;
+    }
 
     public void Update(TEntity entity)
     {

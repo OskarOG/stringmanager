@@ -12,8 +12,8 @@ using StringManager.Infrastructure.Persistence;
 namespace StringManager.Infrastructure.Migrations
 {
     [DbContext(typeof(StringManagerDbContext))]
-    [Migration("20220611152104_RemovedUserName")]
-    partial class RemovedUserName
+    [Migration("20220718183248_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

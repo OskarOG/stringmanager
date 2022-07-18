@@ -12,8 +12,6 @@ public class UserEntityTypeConfiguration : IEntityTypeConfiguration<User>
             .ToTable($"{nameof(User)}")
             .HasKey(p => p.Id);
 
-        builder.HasIndex(x => x.Email);
-
         builder
             .OwnsOne(p => p.Email)
             .Property(p => p.Value)
