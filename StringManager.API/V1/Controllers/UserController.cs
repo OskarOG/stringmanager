@@ -1,14 +1,15 @@
-using System.Net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using StringManager.API.Configuration.Authorization;
 using StringManager.API.V1.Messages;
 using StringManager.Application.Services.Application;
 using StringManager.Application.Services.Domain;
-using StringManager.Application.Services.Infrastructure;
 using StringManager.Domain.Objects.Infrastructure;
 using StringManager.Domain.Objects.Value;
 
 namespace StringManager.API.V1.Controllers;
 
+[Authorize(AuthorizationOptionsExtensions.RequireUserAdminPolicy)]
 [Route("api/v1/[controller]")]
 [ApiController]
 public class UserController : ControllerBase
@@ -33,7 +34,7 @@ public class UserController : ControllerBase
             return CreateBadRequest(emailResult.Error);
         }
         
-        var passwordResult = Password.NewPassword(request.Password);
+        var passwordResult = Password.Create(request.Password);
         if (passwordResult.IsFailure)
         {
             return CreateBadRequest(passwordResult.Error);

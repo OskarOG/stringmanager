@@ -25,20 +25,20 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
         _dbSet.Remove(entity);
     }
 
-    public Task<IEnumerable<TEntity>> GetAsync(params string[] includeProperties) =>
+    public Task<ICollection<TEntity>> GetAsync(params string[] includeProperties) =>
         GetAsync(null, null, includeProperties);
 
-    public Task<IEnumerable<TEntity>> GetAsync(
+    public Task<ICollection<TEntity>> GetAsync(
         Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy,
         params string[] includeProperties) =>
         GetAsync(null, orderBy, includeProperties);
 
-    public Task<IEnumerable<TEntity>> GetAsync(
+    public Task<ICollection<TEntity>> GetAsync(
         Expression<Func<TEntity, bool>> filter,
         params string[] includeProperties) =>
         GetAsync(filter, null, includeProperties);
 
-    public Task<IEnumerable<TEntity>> GetAsync(
+    public Task<ICollection<TEntity>> GetAsync(
         Expression<Func<TEntity, bool>>? filter,
         Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy,
         params string[] includeProperties) =>

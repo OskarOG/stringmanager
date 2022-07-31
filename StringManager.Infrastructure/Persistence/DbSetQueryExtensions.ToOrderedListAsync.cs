@@ -4,7 +4,7 @@ namespace StringManager.Infrastructure.Persistence;
 
 public static partial class DbSetQueryExtensions
 {
-    public static async Task<IEnumerable<TEntity>> ToOrderedListAsync<TEntity>(
+    public static async Task<ICollection<TEntity>> ToOrderedListAsync<TEntity>(
         this IQueryable<TEntity> query,
         Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy) =>
         orderBy != null

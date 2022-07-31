@@ -7,5 +7,7 @@ public enum ProblemType
     InvalidObjectName,
     InvalidNewPassword,
     UnableToParseUserRoleType,
-    EmptyOrNullFolderDescription
+    EmptyOrNullFolderDescription,
+    NoUserFound,
+    IncorrectPassword
 }

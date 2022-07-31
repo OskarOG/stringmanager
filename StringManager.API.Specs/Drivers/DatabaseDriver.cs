@@ -30,7 +30,7 @@ public class DatabaseDriver : IDatabaseDriver
                     existingUserRow.UserId,
                     Email.Create(existingUserRow.Email).Value,
                     UserRoleType.User,
-                    Password.NewPassword(_fixture.Create<string>()).Value));
+                    Password.Create(_fixture.Create<string>()).Value));
         }
 
         await _dbContext.SaveChangesAsync();

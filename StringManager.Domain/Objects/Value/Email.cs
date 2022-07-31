@@ -25,6 +25,10 @@ public class Email : ValueObject
             ? Result<Email>.SuccessResult(new Email(value))
             : Result<Email>.ErrorResult(new Error(ProblemType.InvalidEmail));
     }
+
+    public static bool operator ==(Email? left, string right) => left?.Value == right;
+
+    public static bool operator !=(Email? left, string right) => left?.Value != right;
     
     protected override IEnumerable<object?> GetEqualityComponents()
     {

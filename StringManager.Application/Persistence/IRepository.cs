@@ -6,17 +6,17 @@ public interface IRepository<TEntity> where TEntity : class
 {
     void Delete(TEntity entity);
 
-    Task<IEnumerable<TEntity>> GetAsync(params string[] includeProperties);
+    Task<ICollection<TEntity>> GetAsync(params string[] includeProperties);
     
-    Task<IEnumerable<TEntity>> GetAsync(
+    Task<ICollection<TEntity>> GetAsync(
         Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy,
         params string[] includeProperties);
     
-    Task<IEnumerable<TEntity>> GetAsync(
+    Task<ICollection<TEntity>> GetAsync(
         Expression<Func<TEntity, bool>> filter,
         params string[] includeProperties);
     
-    Task<IEnumerable<TEntity>> GetAsync(
+    Task<ICollection<TEntity>> GetAsync(
         Expression<Func<TEntity, bool>>? filter,
         Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy,
         params string[] includeProperties);

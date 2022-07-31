@@ -62,7 +62,7 @@ public class PasswordTests
     public void NewPassword_WithString_HashesPasswordAndSetsExpected(string val)
     {
         // Act
-        var result = Password.NewPassword(val).Value;
+        var result = Password.Create(val).Value;
 
         // Assert
         result.HashedValue.Should().NotBeNull();
@@ -74,7 +74,7 @@ public class PasswordTests
     public void VerifyPassword_WithValidPassword_VerifiesToTrue(string pass)
     {
         // Arrange
-        var password = Password.NewPassword(pass).Value;
+        var password = Password.Create(pass).Value;
 
         // Act
         var result = password.VerifyPassword(pass);
@@ -87,7 +87,7 @@ public class PasswordTests
     public void VerifyPassword_WithInvalidPassword_VerifiesToFalse(string leftPass, string rightPass)
     {
         // Arrange
-        var password = Password.NewPassword(leftPass).Value;
+        var password = Password.Create(leftPass).Value;
         
         // Act
         var result = password.VerifyPassword(rightPass);
@@ -106,7 +106,7 @@ public class PasswordTests
     public void NewPassword_WithInvalidString_ReturnsFailedResult(string invalidPassword)
     {
         // Act
-        var result = Password.NewPassword(invalidPassword);
+        var result = Password.Create(invalidPassword);
 
         // Assert
         result.IsFailure.Should().BeTrue();

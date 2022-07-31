@@ -19,7 +19,7 @@ public class Password : ValueObject
 
     public string HashedValue { get; private set; }
 
-    public static Result<Password> NewPassword(string password) =>
+    public static Result<Password> Create(string password) =>
         Regex.IsMatch(password, PasswordRegex)
             ? Result<Password>.SuccessResult(
                 new Password(

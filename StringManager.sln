@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringManager.Domain.UnitTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringManager.Application.UnitTests", "StringManager.Application.UnitTests\StringManager.Application.UnitTests.csproj", "{581F4482-0D1F-4BD5-9E7E-091C9A707E53}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringManager.API.UnitTests", "StringManager.API.UnitTests\StringManager.API.UnitTests.csproj", "{B015E532-4CBB-4AFD-88BF-0CC5F16C2C7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +68,9 @@ Global
 		{581F4482-0D1F-4BD5-9E7E-091C9A707E53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{581F4482-0D1F-4BD5-9E7E-091C9A707E53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{581F4482-0D1F-4BD5-9E7E-091C9A707E53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B015E532-4CBB-4AFD-88BF-0CC5F16C2C7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B015E532-4CBB-4AFD-88BF-0CC5F16C2C7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B015E532-4CBB-4AFD-88BF-0CC5F16C2C7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B015E532-4CBB-4AFD-88BF-0CC5F16C2C7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

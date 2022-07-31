@@ -21,6 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\StringManager.API\StringManager.API.csproj" />
       <ProjectReference Include="..\StringManager.TestHelpers\StringManager.TestHelpers.csproj" />
     </ItemGroup>
 

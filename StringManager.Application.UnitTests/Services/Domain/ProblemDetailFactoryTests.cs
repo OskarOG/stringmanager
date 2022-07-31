@@ -8,7 +8,7 @@ using StringManager.Domain.Objects.Infrastructure;
 using StringManager.TestHelpers.Fixtures;
 using Xunit;
 
-namespace StringManager.Application.UnitTests.Services.Infrastructure;
+namespace StringManager.Application.UnitTests.Services.Domain;
 
 public class ProblemDetailFactoryTests
 {
