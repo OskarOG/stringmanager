@@ -30,4 +30,16 @@
     <data name="title-InvalidName" xml:space="preserve">
         <value>Invalid name</value>
     </data>
+    <data name="detail-NoUserFound" xml:space="preserve">
+        <value>A user with this email cannot be found</value>
+    </data>
+    <data name="title-NoUserFound" xml:space="preserve">
+        <value>No user found</value>
+    </data>
+    <data name="title-IncorrectPassword" xml:space="preserve">
+        <value>Invalid password</value>
+    </data>
+    <data name="detail-IncorrectPassword" xml:space="preserve">
+        <value>Invalid password</value>
+    </data>
 </root>
