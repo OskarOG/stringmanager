@@ -1,4 +1,4 @@
-Feature: UserManagement_CreateUser
+Feature: UserManagement/CreateUser
 Note: Improve the SuperUser handling
 Maybe it could be divided up into a role or tag functionallity where the first user created is an Administrator
 After that it is possible to select the role for the user

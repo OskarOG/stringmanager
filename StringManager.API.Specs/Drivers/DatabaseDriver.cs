@@ -29,8 +29,8 @@ public class DatabaseDriver : IDatabaseDriver
                 new User(
                     existingUserRow.UserId,
                     Email.Create(existingUserRow.Email).Value,
-                    UserRoleType.User,
-                    Password.Create(_fixture.Create<string>()).Value));
+                    existingUserRow.UserRole,
+                    Password.Create(existingUserRow.Password).Value));
         }
 
         await _dbContext.SaveChangesAsync();

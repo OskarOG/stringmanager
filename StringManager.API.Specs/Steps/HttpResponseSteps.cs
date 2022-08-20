@@ -8,12 +8,12 @@ namespace StringManager.API.Specs.Steps;
 public class HttpResponseSteps
 {
     private readonly IHttpClientDriver _httpClientDriver;
-    
+
     public HttpResponseSteps(IHttpClientDriver httpClientDriver)
     {
         _httpClientDriver = httpClientDriver;
     }
-    
+
     [Then(@"the http status code ""(.*)"" is returned")]
     public void ThenTheHttpStatusCodeIsReturned(string httpStatusString)
     {
@@ -21,9 +21,10 @@ public class HttpResponseSteps
             .Should().Be(ParseHttpStatusString(httpStatusString));
     }
 
-    private static HttpStatusCode ParseHttpStatusString(string httpStatusString) => 
-        (HttpStatusCode)int.Parse(
-            httpStatusString
-                .TakeWhile(x => x is >= '0' and <= '9')
-                .ToString()!);
+    private static HttpStatusCode ParseHttpStatusString(string httpStatusString) =>
+        (HttpStatusCode) int.Parse(
+            new string(
+                httpStatusString
+                    .TakeWhile(x => x is >= '0' and <= '9')
+                    .ToArray()));
 }

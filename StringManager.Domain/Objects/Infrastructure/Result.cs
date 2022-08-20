@@ -19,10 +19,12 @@ public class Result<T>
     public Error Error => _error ?? throw new InvalidOperationException("No error is set for this result");
 
     public bool IsFailure => !IsSuccess;
-    
+
     public bool IsSuccess => _error == null;
 
-    public T Value => _value ?? throw new InvalidOperationException("No value is set for this result");
+    public T Value => _value ??
+                      throw new InvalidOperationException(
+                          $"No value is set for this result of type {typeof(T).FullName}");
 
     public static Result<T> ErrorResult(Error error) => new(error);
 

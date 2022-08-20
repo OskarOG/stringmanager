@@ -8,5 +8,9 @@ public interface IHttpClientDriver
     
     HttpStatusCode CurrentHttpStatusCode { get; }
 
+    T DeserializeContent<T>() where T : class;
+
+    Task SendRequestAsync(HttpMethod method, string endpoint, object? content);
+    
     Task SendRequestAsync(HttpMethod method, string endpoint, string? content);
 }

@@ -33,7 +33,7 @@ public class AuthenticationService : IAuthenticationService
     private async Task<Result<User>> ValidateUserInformation(Email email, string password)
     {
         var foundUsers = await _unitOfWork.Repository<User>()
-            .GetAsync(u => u.Email == email.Value);
+            .GetAsync(u => u.Email.Value == email.Value);
         if (!foundUsers.Any())
             return Result<User>.ErrorResult(new Error(ProblemType.NoUserFound));
 
@@ -42,9 +42,8 @@ public class AuthenticationService : IAuthenticationService
                 "Multiple users was found for a single email during token creation. It should not be possible to find multiple users with the same email.");
 
         var userToBeAuthorized = foundUsers.First();
-        if (!userToBeAuthorized.Password.VerifyPassword(password))
-            return Result<User>.ErrorResult(new Error(ProblemType.IncorrectPassword));
-
-        return Result<User>.SuccessResult(userToBeAuthorized);
+        return !userToBeAuthorized.Password.VerifyPassword(password)
+            ? Result<User>.ErrorResult(new Error(ProblemType.IncorrectPassword))
+            : Result<User>.SuccessResult(userToBeAuthorized);
     }
 }

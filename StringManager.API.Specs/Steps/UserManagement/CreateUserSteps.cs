@@ -5,7 +5,7 @@ using TechTalk.SpecFlow.Assist;
 namespace StringManager.API.Specs.Steps.UserManagement;
 
 [Binding]
-[Scope(Feature = "UserManagement_CreateUser")]
+[Scope(Feature = "UserManagement/CreateUser")]
 public class CreateUserSteps
 {
     private readonly IUserDriver _userDriver;

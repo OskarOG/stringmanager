@@ -33,8 +33,7 @@ public class UserDriver : IUserDriver
     
     public void CreateUserResponseShouldContainAnId()
     {
-        var response = JsonConvert.DeserializeObject<NewUserResponse>(
-            _httpClientDriver.CurrentStringContent);
+        var response = _httpClientDriver.DeserializeContent<NewUserResponse>();
 
         response.Should().NotBeNull();
         response!.Id.Should().NotBeEmpty();

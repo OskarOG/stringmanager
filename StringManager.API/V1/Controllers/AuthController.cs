@@ -23,9 +23,9 @@ public class AuthController : ControllerBase
         _problemDetailFactory = problemDetailFactory;
     }
     
-    [HttpPost(nameof(CreateUserToken))]
+    [HttpPost(Name = nameof(CreateUserToken))]
     [AllowAnonymous]
-    public async Task<IActionResult> CreateUserToken([FromBody] LoginRequest request)
+    public async Task<IActionResult> CreateUserToken([FromBody] UserTokenRequest request)
     {
         var emailResult = Email.Create(request.Email);
         if (emailResult.IsFailure)
@@ -34,7 +34,7 @@ public class AuthController : ControllerBase
         var userTokenResult = await _authenticationService.CreateUserTokenAsync(emailResult.Value, request.Password);
 
         if (userTokenResult.IsSuccess)
-            return new CreatedResult("/api/v1/auth", new { token = userTokenResult.Value});
+            return new CreatedResult("/api/v1/auth", new UserTokenResponse(userTokenResult.Value));
         
         if (userTokenResult.Error.IsException)
             return StatusCode(
