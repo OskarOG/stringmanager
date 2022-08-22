@@ -35,11 +35,14 @@ public class TokenCreationService : ITokenCreationService
 
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
+
+        var currentTime = _dateTimeService.GetUniversalTime();
+        var expireTime = _dateTimeService.GetUniversalTime().Add(_tokenTimeSpan);
         var tokenDescriptor = new JwtSecurityToken(
             _configuration["Jwt:Issuer"],
             _configuration["Jwt:Issuer"],
             claims,
-            expires: _dateTimeService.GetUniversalTime().Add(_tokenTimeSpan),
+            expires: expireTime,
             signingCredentials: credentials);
 
         return new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);

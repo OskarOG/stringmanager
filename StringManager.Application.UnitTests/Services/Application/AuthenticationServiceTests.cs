@@ -30,7 +30,7 @@ public class AuthenticationServiceTests
         // Assert
         result.IsSuccess.Should().BeFalse();
         result.IsFailure.Should().BeTrue();
-        result.Error.ProblemType.Should().Be(ProblemType.NoUserFound);
+        result.Error.ProblemType.Should().Be(ProblemType.WrongUserInformation);
     }
 
     [Theory, DomainAutoData]
@@ -76,7 +76,7 @@ public class AuthenticationServiceTests
         result.IsFailure.Should().BeTrue();
         result.IsSuccess.Should().BeFalse();
         result.Error.IsException.Should().BeFalse();
-        result.Error.ProblemType.Should().Be(ProblemType.IncorrectPassword);
+        result.Error.ProblemType.Should().Be(ProblemType.WrongUserInformation);
     }
 
     [Theory, DomainAutoData]

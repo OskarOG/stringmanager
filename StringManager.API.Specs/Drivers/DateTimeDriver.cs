@@ -21,6 +21,6 @@ public class DateTimeDriver : IDateTimeDriver
     public void SetCurrentTime(string dateTimeString)
     {
         _currentTime = DateTime.Parse(dateTimeString);
-        _dateTimeService.GetUniversalTime().Returns(CurrentTime);
+        _dateTimeService.GetUniversalTime().Returns(DateTime.SpecifyKind(CurrentTime, DateTimeKind.Utc));
     }
 }

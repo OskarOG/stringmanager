@@ -1,7 +1,9 @@
 using System.Net;
+using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using StringManager.API.Specs.Support.Exceptions;
+using StringManager.Application.Persistence;
 using StringManager.Application.Services.Infrastructure;
 using StringManager.Infrastructure.Persistence;
 using StringManager.TestHelpers.Fixtures;
@@ -23,7 +25,7 @@ public class HttpClientDriver : IHttpClientDriver
     {
         _webAppFactory = new StringManagerWebApiFactory(new Dictionary<Type, CustomServiceMock>
         {
-            [typeof(StringManagerDbContext)] = new(ServiceLifetime.Scoped, dbContext),
+            [typeof(IUnitOfWork)] = new(ServiceLifetime.Scoped, dbContext),
             [typeof(IDateTimeService)] = new(ServiceLifetime.Transient, dateTimeService)
         });
     }
@@ -59,7 +61,7 @@ public class HttpClientDriver : IHttpClientDriver
         var client = _webAppFactory.CreateClient();
         var response = await client.SendAsync(new HttpRequestMessage(method, endpoint)
         {
-            Content = content != null ? new StringContent(content) : null,
+            Content = content != null ? new StringContent(content, Encoding.UTF8, "application/json") : null
         });
 
         CurrentStringContent = await response.Content.ReadAsStringAsync();

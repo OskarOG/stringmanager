@@ -46,7 +46,7 @@ public class AuthenticationDriver : IAuthenticationDriver
     {
         await _httpClientDriver.SendRequestAsync(
             HttpMethod.Post,
-            "/api/v1/auth",
+            "http://localhost/api/v1/auth",
             new UserTokenRequest(SignInInformation.Email, SignInInformation.Password));
     }
 
@@ -64,7 +64,8 @@ public class AuthenticationDriver : IAuthenticationDriver
                 ValidateAudience = true,
                 ValidIssuer = "stringmanager-dev",
                 ValidAudience = "stringmanager-dev",
-                IssuerSigningKey = key
+                IssuerSigningKey = key,
+                ValidateLifetime = false
             },
             out _securityToken);
     }

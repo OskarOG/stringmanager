@@ -19,7 +19,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="detail-InvalidEmail" xml:space="preserve">
-        <value>Invalid email</value>
+        <value>The email entered for the new user is invalid.</value>
     </data>
     <data name="title-InvalidEmail" xml:space="preserve">
         <value>Invalid email</value>
@@ -30,16 +30,10 @@
     <data name="title-InvalidName" xml:space="preserve">
         <value>Invalid name</value>
     </data>
-    <data name="detail-NoUserFound" xml:space="preserve">
-        <value>A user with this email cannot be found</value>
+    <data name="detail-WrongUserInformation" xml:space="preserve">
+        <value>The user information entered is invalid.</value>
     </data>
-    <data name="title-NoUserFound" xml:space="preserve">
-        <value>No user found</value>
-    </data>
-    <data name="title-IncorrectPassword" xml:space="preserve">
-        <value>Invalid password</value>
-    </data>
-    <data name="detail-IncorrectPassword" xml:space="preserve">
-        <value>Invalid password</value>
+    <data name="title-WrongUserInformation" xml:space="preserve">
+        <value>Faulty user information</value>
     </data>
 </root>

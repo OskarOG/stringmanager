@@ -35,7 +35,7 @@ public class AuthenticationService : IAuthenticationService
         var foundUsers = await _unitOfWork.Repository<User>()
             .GetAsync(u => u.Email.Value == email.Value);
         if (!foundUsers.Any())
-            return Result<User>.ErrorResult(new Error(ProblemType.NoUserFound));
+            return Result<User>.ErrorResult(new Error(ProblemType.WrongUserInformation));
 
         if (foundUsers.Count > 1)
             throw new InvalidProgramException(
@@ -43,7 +43,7 @@ public class AuthenticationService : IAuthenticationService
 
         var userToBeAuthorized = foundUsers.First();
         return !userToBeAuthorized.Password.VerifyPassword(password)
-            ? Result<User>.ErrorResult(new Error(ProblemType.IncorrectPassword))
+            ? Result<User>.ErrorResult(new Error(ProblemType.WrongUserInformation))
             : Result<User>.SuccessResult(userToBeAuthorized);
     }
 }

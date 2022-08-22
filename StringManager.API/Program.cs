@@ -1,3 +1,4 @@
+using System.Text.Json;
 using StringManager.API.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,10 +7,14 @@ builder.Services.AddPersistence();
 builder.Services.AddApplicationServices();
 builder.Services.AddDomainServices();
 builder.Services.AddInfrastructure();
-
-builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+    });
 
 builder.Services.AddAuth(builder.Configuration);
 

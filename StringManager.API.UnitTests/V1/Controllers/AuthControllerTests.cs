@@ -6,8 +6,10 @@ using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using NSubstitute;
 using StringManager.API.V1.Controllers;
+using StringManager.API.V1.Messages;
 using StringManager.Application.Services.Application;
 using StringManager.Application.Services.Domain;
+using StringManager.Application.Services.Infrastructure;
 using StringManager.Domain.Messages;
 using StringManager.Domain.Objects.Infrastructure;
 using StringManager.Domain.Objects.Value;
@@ -49,11 +51,11 @@ public class AuthControllerTests
         [Greedy] AuthController sut)
     {
         // Arrange
-        problemDetailFactory.CreateProblemDetail(ProblemType.IncorrectPassword)
+        problemDetailFactory.CreateProblemDetail(ProblemType.WrongUserInformation)
             .Returns(problemDetailForInvalidPassword);
 
         authenticationService.CreateUserTokenAsync(Arg.Is<Email>(x => x.Value == email.Value), password)
-            .Returns(Result<string>.ErrorResult(new Error(ProblemType.IncorrectPassword)));
+            .Returns(Result<string>.ErrorResult(new Error(ProblemType.WrongUserInformation)));
         
         // Act
         var result = await sut.CreateUserToken(new(email.Value, password));
@@ -69,19 +71,21 @@ public class AuthControllerTests
         string expectedToken,
         Email email,
         [PasswordString] string password,
+        [Frozen] IDateTimeService dateTimeService,
         [Frozen] IAuthenticationService authenticationService,
         [Greedy] AuthController sut)
     {
         // Arrange
+        dateTimeService.GetUniversalTime().Returns(DateTime.Now);
         authenticationService.CreateUserTokenAsync(Arg.Is<Email>(x => x.Value == email.Value), password)
             .Returns(Result<string>.SuccessResult(expectedToken));
         
         // Act
-        var result = await sut.CreateUserToken(new(email.Value, password));
+        var result = await sut.CreateUserToken(new UserTokenRequest(email.Value, password));
 
         // Assert
         result.Should().BeOfType<CreatedResult>()
-            .Which.Value.Should().BeEquivalentTo(new { token = expectedToken});
+            .Which.Value.Should().BeEquivalentTo(new { Token = expectedToken});
     }
 
     [Theory, DomainAutoData]
