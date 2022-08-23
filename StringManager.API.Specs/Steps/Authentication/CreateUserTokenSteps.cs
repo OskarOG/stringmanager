@@ -5,12 +5,12 @@ using TechTalk.SpecFlow.Assist;
 namespace StringManager.API.Specs.Steps.Authentication;
 
 [Binding]
-[Scope(Feature = "Authentication/UserAuthentication")]
-public sealed class UserAuthenticationSteps
+[Scope(Feature = "Authentication/CreateUserToken")]
+public sealed class CreateUserTokenSteps
 {
     private readonly IAuthenticationDriver _authenticationDriver;
 
-    public UserAuthenticationSteps(IAuthenticationDriver authenticationDriver)
+    public CreateUserTokenSteps(IAuthenticationDriver authenticationDriver)
     {
         _authenticationDriver = authenticationDriver;
     }
@@ -37,7 +37,7 @@ public sealed class UserAuthenticationSteps
     public void ThenTheTokenHasAValidLengthOfMinutes(int minutes)
     {
         _authenticationDriver.TokenShouldBeValidForExpectedTime(minutes);
-    }
+     }
     
     [Then(@"the token has the ""(.*)"" as a claim")]
     public void ThenTheTokenHasTheAsAClaim(string userRoleString)

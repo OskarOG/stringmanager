@@ -14,6 +14,7 @@ public class AuthenticationDriver : IAuthenticationDriver
     private readonly IHttpClientDriver _httpClientDriver;
     private readonly IDateTimeDriver _dateTimeDriver;
 
+    private string? _jwt;
     private SignInInfoRow? _signInInfoRow;
     private ClaimsPrincipal? _tokenClaims;
     private SecurityToken? _securityToken;
@@ -26,6 +27,8 @@ public class AuthenticationDriver : IAuthenticationDriver
         _httpClientDriver = httpClientDriver;
     }
 
+    public string Jwt => _jwt ?? throw new StepMissingException("A step for requesting a new token is missing");
+    
     public ClaimsPrincipal TokenClaims =>
         _tokenClaims ?? throw new StepMissingException("A step for validating the token is missing");
 
@@ -48,6 +51,8 @@ public class AuthenticationDriver : IAuthenticationDriver
             HttpMethod.Post,
             "http://localhost/api/v1/auth",
             new UserTokenRequest(SignInInformation.Email, SignInInformation.Password));
+
+        _jwt = _httpClientDriver.DeserializeContent<UserTokenResponse>().Token;
     }
 
     public void ValidateReturnedToken()

@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace StringManager.API.Specs.Features
+namespace StringManager.API.Specs.Features.Folder
 {
     using TechTalk.SpecFlow;
     using System;
@@ -40,7 +40,7 @@ namespace StringManager.API.Specs.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Create_Folder_In_Domain", "Note:\n    Include folder tags so that folders can be tagged with SystemFolder and" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Folder", "Create_Folder_In_Domain", "Note:\n    Include folder tags so that folders can be tagged with SystemFolder and" +
                     " such in order to keep system specific texts in separate folders", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }

@@ -1,4 +1,4 @@
-Feature: Authentication/UserAuthentication
+Feature: Authentication/CreateUserToken
 
    Background:
       Given that the following users exists

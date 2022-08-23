@@ -84,16 +84,29 @@ namespace StringManager.API.Specs.Features.UserManagement
    #line hidden
             TechTalk.SpecFlow.Table table39 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserId",
-                        "Email"});
+                        "Email",
+                        "UserRole",
+                        "Password"});
             table39.AddRow(new string[] {
                         "616aba5c-e933-4b22-a383-93aea94379b4",
-                        "adminuser@email.com"});
+                        "adminuser@email.com",
+                        "Administrator",
+                        "Password1"});
             table39.AddRow(new string[] {
                         "c0a1b5bd-d48d-44c3-bf25-0500ebbd239d",
-                        "useradmin@email.com"});
+                        "useradmin@email.com",
+                        "UserAdmin",
+                        "Password2"});
             table39.AddRow(new string[] {
                         "910b77cb-ee2a-4673-bc34-78c0992b0f05",
-                        "folderadmin@email.com"});
+                        "folderadmin@email.com",
+                        "FolderAdmin",
+                        "Password3"});
+            table39.AddRow(new string[] {
+                        "11a8f678-b1b4-4d95-8191-0ea27f72407e",
+                        "user@email.com",
+                        "User",
+                        "Password4"});
 #line 11
       testRunner.Given("that the following users exists", ((string)(null)), table39, "Given ");
 #line hidden
@@ -109,7 +122,7 @@ namespace StringManager.API.Specs.Features.UserManagement
             table40.AddRow(new string[] {
                         "910b77cb-ee2a-4673-bc34-78c0992b0f05",
                         "FolderAdmin"});
-#line 16
+#line 17
       testRunner.And("that the users have the following roles", ((string)(null)), table40, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table41 = new TechTalk.SpecFlow.Table(new string[] {
@@ -121,7 +134,7 @@ namespace StringManager.API.Specs.Features.UserManagement
             table41.AddRow(new string[] {
                         "ec77e8bf-f31b-411b-8942-6cfcce1266e7",
                         "Sales"});
-#line 21
+#line 22
       testRunner.And("that the following access groups exists", ((string)(null)), table41, "And ");
 #line hidden
         }
@@ -149,7 +162,7 @@ namespace StringManager.API.Specs.Features.UserManagement
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("userId", userId);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User with user management role or administrator creates new standard user", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 27
+#line 28
    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -162,7 +175,7 @@ namespace StringManager.API.Specs.Features.UserManagement
 #line 10
    this.FeatureBackground();
 #line hidden
-#line 28
+#line 29
       testRunner.Given(string.Format("that the user \"{0}\" is signed in", userId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table42 = new TechTalk.SpecFlow.Table(new string[] {
@@ -173,7 +186,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "testuser@email.com",
                             "abc123",
                             "User"});
-#line 29
+#line 30
       testRunner.And("want to create a new user with the following information", ((string)(null)), table42, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table43 = new TechTalk.SpecFlow.Table(new string[] {
@@ -182,19 +195,19 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "4605a27b-6f86-47c3-ac1a-547aa1b01fe3"});
                 table43.AddRow(new string[] {
                             "ec77e8bf-f31b-411b-8942-6cfcce1266e7"});
-#line 32
+#line 33
       testRunner.And("that the new user should be included in the following access groups", ((string)(null)), table43, "And ");
 #line hidden
-#line 36
+#line 37
       testRunner.When("the new user request is sent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 37
+#line 38
       testRunner.Then("the new user is created with the expected information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 38
+#line 39
       testRunner.And("the new users id is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 39
+#line 40
       testRunner.And("the http status code \"201 Created\" is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -211,7 +224,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                     "ResourceCreation"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Administrator tries to create new user with Administrator role", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 48
+#line 49
    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -224,7 +237,7 @@ namespace StringManager.API.Specs.Features.UserManagement
 #line 10
    this.FeatureBackground();
 #line hidden
-#line 49
+#line 50
       testRunner.Given("that the user \"616aba5c-e933-4b22-a383-93aea94379b4\" is signed in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table44 = new TechTalk.SpecFlow.Table(new string[] {
@@ -235,19 +248,19 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "testuser@email.com",
                             "abc123",
                             "Administrator"});
-#line 50
+#line 51
       testRunner.And("want to create a new user with the following information", ((string)(null)), table44, "And ");
 #line hidden
-#line 53
+#line 54
       testRunner.When("the new user request is sent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 54
+#line 55
       testRunner.Then("the new user is created with the expected information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 55
+#line 56
       testRunner.And("the new users id is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 56
+#line 57
       testRunner.And("the http status code \"201 Created\" is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -264,7 +277,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                     "ResourceCreation"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Administrator tries to create new user with UserAdmin role", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 59
+#line 60
    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -277,7 +290,7 @@ namespace StringManager.API.Specs.Features.UserManagement
 #line 10
    this.FeatureBackground();
 #line hidden
-#line 60
+#line 61
       testRunner.Given("that the user \"616aba5c-e933-4b22-a383-93aea94379b4\" is signed in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table45 = new TechTalk.SpecFlow.Table(new string[] {
@@ -288,7 +301,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "testuser@email.com",
                             "abc123",
                             "UserAdmin"});
-#line 61
+#line 62
       testRunner.And("want to create a new user with the following information", ((string)(null)), table45, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table46 = new TechTalk.SpecFlow.Table(new string[] {
@@ -297,19 +310,19 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "4605a27b-6f86-47c3-ac1a-547aa1b01fe3"});
                 table46.AddRow(new string[] {
                             "ec77e8bf-f31b-411b-8942-6cfcce1266e7"});
-#line 64
+#line 65
       testRunner.And("that the new user should be included in the following access groups", ((string)(null)), table46, "And ");
 #line hidden
-#line 68
+#line 69
       testRunner.When("the new user request is sent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 69
+#line 70
       testRunner.Then("the new user is created with the expected information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 70
+#line 71
       testRunner.And("the new users id is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 71
+#line 72
       testRunner.And("the http status code \"201 Created\" is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -326,7 +339,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                     "ResourceCreation"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User admin tries to create new user with UserAdmin role", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 74
+#line 75
    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -339,7 +352,7 @@ namespace StringManager.API.Specs.Features.UserManagement
 #line 10
    this.FeatureBackground();
 #line hidden
-#line 75
+#line 76
       testRunner.Given("that the user \"c0a1b5bd-d48d-44c3-bf25-0500ebbd239d\" is signed in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table47 = new TechTalk.SpecFlow.Table(new string[] {
@@ -350,7 +363,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "testuser@email.com",
                             "abc123",
                             "UserAdmin"});
-#line 76
+#line 77
       testRunner.And("want to create a new user with the following information", ((string)(null)), table47, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table48 = new TechTalk.SpecFlow.Table(new string[] {
@@ -359,19 +372,19 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "4605a27b-6f86-47c3-ac1a-547aa1b01fe3"});
                 table48.AddRow(new string[] {
                             "ec77e8bf-f31b-411b-8942-6cfcce1266e7"});
-#line 79
+#line 80
       testRunner.And("that the new user should be included in the following access groups", ((string)(null)), table48, "And ");
 #line hidden
-#line 83
+#line 84
       testRunner.When("the new user request is sent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 84
+#line 85
       testRunner.Then("the new user is created with the expected information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 85
+#line 86
       testRunner.And("the new users id is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 86
+#line 87
       testRunner.And("the http status code \"201 Created\" is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -388,7 +401,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                     "ResourceCreation"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User admin tries to create new user with FolderAdmin role", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 89
+#line 90
    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -401,7 +414,7 @@ namespace StringManager.API.Specs.Features.UserManagement
 #line 10
    this.FeatureBackground();
 #line hidden
-#line 90
+#line 91
       testRunner.Given("that the user \"c0a1b5bd-d48d-44c3-bf25-0500ebbd239d\" is signed in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table49 = new TechTalk.SpecFlow.Table(new string[] {
@@ -412,19 +425,19 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "testuser@email.com",
                             "abc123",
                             "FolderAdmin"});
-#line 91
+#line 92
       testRunner.And("want to create a new user with the following information", ((string)(null)), table49, "And ");
 #line hidden
-#line 94
+#line 95
       testRunner.When("the new user request is sent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 95
+#line 96
       testRunner.Then("the new user is created with the expected information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 96
+#line 97
       testRunner.And("the new users id is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 97
+#line 98
       testRunner.And("the http status code \"201 Created\" is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -441,7 +454,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                     "BusinessRuleError"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User admin tries to create new administrator", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 100
+#line 101
    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -454,7 +467,7 @@ namespace StringManager.API.Specs.Features.UserManagement
 #line 10
    this.FeatureBackground();
 #line hidden
-#line 101
+#line 102
       testRunner.Given("that the user \"c0a1b5bd-d48d-44c3-bf25-0500ebbd239d\" is signed in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table50 = new TechTalk.SpecFlow.Table(new string[] {
@@ -465,7 +478,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "testuser@email.com",
                             "abc123",
                             "Administrator"});
-#line 102
+#line 103
       testRunner.And("want to create a new user with the following information", ((string)(null)), table50, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table51 = new TechTalk.SpecFlow.Table(new string[] {
@@ -474,16 +487,16 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "4605a27b-6f86-47c3-ac1a-547aa1b01fe3"});
                 table51.AddRow(new string[] {
                             "ec77e8bf-f31b-411b-8942-6cfcce1266e7"});
-#line 105
+#line 106
       testRunner.And("that the new user should be included in the following access groups", ((string)(null)), table51, "And ");
 #line hidden
-#line 109
+#line 110
       testRunner.When("the new user request is sent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 110
+#line 111
       testRunner.Then("a new user is not created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 111
+#line 112
       testRunner.And("the http status code \"400 Bad Request\" is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table52 = new TechTalk.SpecFlow.Table(new string[] {
@@ -496,7 +509,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "Insufficient permissions",
                             "You can not create a new user with the role that you selected.",
                             "400"});
-#line 112
+#line 113
       testRunner.And("the following problem detail is returned", ((string)(null)), table52, "And ");
 #line hidden
             }
@@ -513,7 +526,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                     "BusinessRuleError"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Folder admin tries to create new user", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 117
+#line 118
    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -526,7 +539,7 @@ namespace StringManager.API.Specs.Features.UserManagement
 #line 10
    this.FeatureBackground();
 #line hidden
-#line 118
+#line 119
       testRunner.Given("that the user \"910b77cb-ee2a-4673-bc34-78c0992b0f05\" is signed in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table53 = new TechTalk.SpecFlow.Table(new string[] {
@@ -537,7 +550,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "testuser@email.com",
                             "abc123",
                             "User"});
-#line 119
+#line 120
       testRunner.And("want to create a new user with the following information", ((string)(null)), table53, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table54 = new TechTalk.SpecFlow.Table(new string[] {
@@ -546,16 +559,16 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "4605a27b-6f86-47c3-ac1a-547aa1b01fe3"});
                 table54.AddRow(new string[] {
                             "ec77e8bf-f31b-411b-8942-6cfcce1266e7"});
-#line 122
+#line 123
       testRunner.And("that the new user should be included in the following access groups", ((string)(null)), table54, "And ");
 #line hidden
-#line 126
+#line 127
       testRunner.When("the new user request is sent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 127
+#line 128
       testRunner.Then("a new user is not created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 128
+#line 129
       testRunner.And("the http status code \"400 Bad Request\" is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table55 = new TechTalk.SpecFlow.Table(new string[] {
@@ -568,7 +581,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "Insufficient permissions",
                             "You can not create a new user.",
                             "400"});
-#line 129
+#line 130
       testRunner.And("the following problem detail is returned", ((string)(null)), table55, "And ");
 #line hidden
             }
@@ -588,7 +601,7 @@ namespace StringManager.API.Specs.Features.UserManagement
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Administrator tries to create a new user with an email that is already registered" +
                     "", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 134
+#line 135
    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -601,7 +614,7 @@ namespace StringManager.API.Specs.Features.UserManagement
 #line 10
    this.FeatureBackground();
 #line hidden
-#line 135
+#line 136
       testRunner.Given("that the user \"616aba5c-e933-4b22-a383-93aea94379b4\" is signed in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table56 = new TechTalk.SpecFlow.Table(new string[] {
@@ -612,7 +625,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "folderadmin@email.com",
                             "abc123",
                             "User"});
-#line 136
+#line 137
       testRunner.And("want to create a new user with the following information", ((string)(null)), table56, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table57 = new TechTalk.SpecFlow.Table(new string[] {
@@ -621,16 +634,16 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "4605a27b-6f86-47c3-ac1a-547aa1b01fe3"});
                 table57.AddRow(new string[] {
                             "ec77e8bf-f31b-411b-8942-6cfcce1266e7"});
-#line 139
+#line 140
       testRunner.And("that the new user should be included in the following access groups", ((string)(null)), table57, "And ");
 #line hidden
-#line 143
+#line 144
       testRunner.When("the new user request is sent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 144
+#line 145
       testRunner.Then("a new user is not created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 145
+#line 146
       testRunner.And("the http status code \"400 Bad Request\" is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table58 = new TechTalk.SpecFlow.Table(new string[] {
@@ -643,7 +656,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "Existing email",
                             "The email entered for the new user is already registered.",
                             "400"});
-#line 146
+#line 147
       testRunner.And("the following problem detail is returned", ((string)(null)), table58, "And ");
 #line hidden
             }
@@ -673,7 +686,7 @@ namespace StringManager.API.Specs.Features.UserManagement
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("invalidEmail", invalidEmail);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Administrator tries to create a new user with an invalid email", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 151
+#line 152
    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -686,7 +699,7 @@ namespace StringManager.API.Specs.Features.UserManagement
 #line 10
    this.FeatureBackground();
 #line hidden
-#line 152
+#line 153
       testRunner.Given("that the user \"616aba5c-e933-4b22-a383-93aea94379b4\" is signed in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table59 = new TechTalk.SpecFlow.Table(new string[] {
@@ -697,7 +710,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             string.Format("{0}", invalidEmail),
                             "abc123",
                             "User"});
-#line 153
+#line 154
       testRunner.And("want to create a new user with the following information", ((string)(null)), table59, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table60 = new TechTalk.SpecFlow.Table(new string[] {
@@ -706,16 +719,16 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "4605a27b-6f86-47c3-ac1a-547aa1b01fe3"});
                 table60.AddRow(new string[] {
                             "ec77e8bf-f31b-411b-8942-6cfcce1266e7"});
-#line 156
+#line 157
       testRunner.And("that the new user should be included in the following access groups", ((string)(null)), table60, "And ");
 #line hidden
-#line 160
+#line 161
       testRunner.When("the new user request is sent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 161
+#line 162
       testRunner.Then("a new user is not created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 162
+#line 163
       testRunner.And("the http status code \"400 Bad Request\" is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table61 = new TechTalk.SpecFlow.Table(new string[] {
@@ -728,7 +741,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "Invalid email",
                             "The email entered for the new user is invalid.",
                             "400"});
-#line 163
+#line 164
       testRunner.And("the following problem detail is returned", ((string)(null)), table61, "And ");
 #line hidden
             }
@@ -758,7 +771,7 @@ namespace StringManager.API.Specs.Features.UserManagement
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("invalidPassword", invalidPassword);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Administrator tries to create a new user with invalid password", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 178
+#line 179
    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -771,7 +784,7 @@ namespace StringManager.API.Specs.Features.UserManagement
 #line 10
    this.FeatureBackground();
 #line hidden
-#line 179
+#line 180
       testRunner.Given("that the user \"616aba5c-e933-4b22-a383-93aea94379b4\" is signed in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table62 = new TechTalk.SpecFlow.Table(new string[] {
@@ -782,7 +795,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "test@email.com",
                             string.Format("{0}", invalidPassword),
                             "User"});
-#line 180
+#line 181
       testRunner.And("want to create a new user with the following information", ((string)(null)), table62, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table63 = new TechTalk.SpecFlow.Table(new string[] {
@@ -791,16 +804,16 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "4605a27b-6f86-47c3-ac1a-547aa1b01fe3"});
                 table63.AddRow(new string[] {
                             "ec77e8bf-f31b-411b-8942-6cfcce1266e7"});
-#line 183
+#line 184
       testRunner.And("that the new user should be included in the following access groups", ((string)(null)), table63, "And ");
 #line hidden
-#line 187
+#line 188
       testRunner.When("the new user request is sent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 188
+#line 189
       testRunner.Then("a new user is not created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 189
+#line 190
       testRunner.And("the http status code \"400 Bad Request\" is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table64 = new TechTalk.SpecFlow.Table(new string[] {
@@ -813,7 +826,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "Invalid password",
                             "The password entered for the new user is invalid.",
                             "400"});
-#line 190
+#line 191
       testRunner.And("the following problem detail is returned", ((string)(null)), table64, "And ");
 #line hidden
             }
@@ -833,7 +846,7 @@ namespace StringManager.API.Specs.Features.UserManagement
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Administrator tries to create a new user with initial access group that does not " +
                     "exist", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 205
+#line 206
    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -846,7 +859,7 @@ namespace StringManager.API.Specs.Features.UserManagement
 #line 10
    this.FeatureBackground();
 #line hidden
-#line 206
+#line 207
       testRunner.Given("that the user \"616aba5c-e933-4b22-a383-93aea94379b4\" is signed in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table65 = new TechTalk.SpecFlow.Table(new string[] {
@@ -857,7 +870,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "test@email.com",
                             "<invalidPassword>",
                             "User"});
-#line 207
+#line 208
       testRunner.And("want to create a new user with the following information", ((string)(null)), table65, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table66 = new TechTalk.SpecFlow.Table(new string[] {
@@ -866,16 +879,16 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "4605a27b-6f86-47c3-ac1a-547aa1b01fe3"});
                 table66.AddRow(new string[] {
                             "8c9e47e5-b2ec-4818-8fe8-35241e3d26fb"});
-#line 210
+#line 211
       testRunner.And("that the new user should be included in the following access groups", ((string)(null)), table66, "And ");
 #line hidden
-#line 214
+#line 215
       testRunner.When("the new user request is sent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 215
+#line 216
       testRunner.Then("a new user is not created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 216
+#line 217
       testRunner.And("the http status code \"400 Bad Request\" is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table67 = new TechTalk.SpecFlow.Table(new string[] {
@@ -888,7 +901,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "Invalid access group",
                             "One of the initial access groups added to the user does not exist.",
                             "400"});
-#line 217
+#line 218
       testRunner.And("the following problem detail is returned", ((string)(null)), table67, "And ");
 #line hidden
             }
@@ -905,7 +918,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                     "AuthenticationError"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User that is not signed in tries to create a new user", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 222
+#line 223
    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -918,7 +931,7 @@ namespace StringManager.API.Specs.Features.UserManagement
 #line 10
    this.FeatureBackground();
 #line hidden
-#line 223
+#line 224
       testRunner.Given("that no user is signed in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table68 = new TechTalk.SpecFlow.Table(new string[] {
@@ -929,7 +942,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "test@email.com",
                             "<invalidPassword>",
                             "User"});
-#line 224
+#line 225
       testRunner.And("want to create a new user with the following information", ((string)(null)), table68, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table69 = new TechTalk.SpecFlow.Table(new string[] {
@@ -938,16 +951,16 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "4605a27b-6f86-47c3-ac1a-547aa1b01fe3"});
                 table69.AddRow(new string[] {
                             "8c9e47e5-b2ec-4818-8fe8-35241e3d26fb"});
-#line 227
+#line 228
       testRunner.And("that the new user should be included in the following access groups", ((string)(null)), table69, "And ");
 #line hidden
-#line 231
+#line 232
       testRunner.When("the new user request is sent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 232
+#line 233
       testRunner.Then("a new user is not created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 233
+#line 234
       testRunner.And("the http status code \"401 Unauthorized\" is returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table70 = new TechTalk.SpecFlow.Table(new string[] {
@@ -960,7 +973,7 @@ namespace StringManager.API.Specs.Features.UserManagement
                             "Not authorized",
                             "You are not authorized to perform this action.",
                             "401"});
-#line 234
+#line 235
       testRunner.And("the following problem detail is returned", ((string)(null)), table70, "And ");
 #line hidden
             }

@@ -4,6 +4,8 @@ namespace StringManager.API.Specs.Drivers;
 
 public interface IAuthenticationDriver
 {
+    string Jwt { get; }
+    
     void SaveUserInformation(SignInInfoRow signInInfoRow);
     
     Task SendAuthenticationRequestAsync();

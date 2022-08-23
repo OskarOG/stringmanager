@@ -30,7 +30,7 @@ public class UserDriver : IUserDriver
     public IEnumerable<Guid>? NewUsersInitialAccessGroupIds { get; private set; }
     
     public Guid SignedInUserId { get; private set; }
-    
+
     public void CreateUserResponseShouldContainAnId()
     {
         var response = _httpClientDriver.DeserializeContent<NewUserResponse>();

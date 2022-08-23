@@ -9,10 +9,11 @@ After that it is possible to select the role for the user
 
    Background:
       Given that the following users exists
-        | UserId                               | Email                 |
-        | 616aba5c-e933-4b22-a383-93aea94379b4 | adminuser@email.com   |
-        | c0a1b5bd-d48d-44c3-bf25-0500ebbd239d | useradmin@email.com   |
-        | 910b77cb-ee2a-4673-bc34-78c0992b0f05 | folderadmin@email.com |
+        | UserId                               | Email                 | UserRole      | Password  |
+        | 616aba5c-e933-4b22-a383-93aea94379b4 | adminuser@email.com   | Administrator | Password1 |
+        | c0a1b5bd-d48d-44c3-bf25-0500ebbd239d | useradmin@email.com   | UserAdmin     | Password2 |
+        | 910b77cb-ee2a-4673-bc34-78c0992b0f05 | folderadmin@email.com | FolderAdmin   | Password3 |
+        | 11a8f678-b1b4-4d95-8191-0ea27f72407e | user@email.com        | User          | Password4 |
       And that the users have the following roles
         | UserId                               | RoleType      |
         | 616aba5c-e933-4b22-a383-93aea94379b4 | Administrator |
