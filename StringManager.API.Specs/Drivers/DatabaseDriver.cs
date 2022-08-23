@@ -1,4 +1,3 @@
-using AutoFixture;
 using StringManager.API.Specs.Drivers.RowObjects;
 using StringManager.Domain.Objects.Entity;
 using StringManager.Domain.Objects.Value;
@@ -9,14 +8,10 @@ namespace StringManager.API.Specs.Drivers;
 public class DatabaseDriver : IDatabaseDriver
 {
     private readonly StringManagerDbContext _dbContext;
-    private readonly IFixture _fixture;
 
-    public DatabaseDriver(
-        StringManagerDbContext dbContext,
-        Fixture fixture)
+    public DatabaseDriver(StringManagerDbContext dbContext)
     {
         _dbContext = dbContext;
-        _fixture = fixture;
     }
 
     public async Task AddExistingUsersToDatabaseAsync(IEnumerable<ExistingUserRow> userRows)
@@ -29,8 +24,8 @@ public class DatabaseDriver : IDatabaseDriver
                 new User(
                     existingUserRow.UserId,
                     Email.Create(existingUserRow.Email).Value,
-                    UserRoleType.User,
-                    Password.Create(_fixture.Create<string>()).Value));
+                    existingUserRow.UserRole,
+                    Password.Create(existingUserRow.Password).Value));
         }
 
         await _dbContext.SaveChangesAsync();

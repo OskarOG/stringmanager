@@ -80,149 +80,149 @@ namespace StringManager.API.Specs.Features
         {
 #line 6
     #line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserId",
                         "Username"});
-            table1.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "1407c9e0-1bc9-4e46-b576-984cf7b7038f",
                         "SuperUser"});
-            table1.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "9cda3499-8de4-4841-9dfd-ec20872ede6f",
                         "SalesReader"});
-            table1.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "306c64f1-49f1-4e4c-ad80-875d753b7192",
                         "SalesUser"});
-            table1.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "d9696b2e-806c-4ce4-9e9a-51e50b732f1a",
                         "ProductReader"});
-            table1.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "1f9b3c51-a657-4eb7-aab1-1dcb459345b3",
                         "ProductUser"});
-            table1.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "f38ed952-a262-47cf-8c49-46f78c0b36ca",
                         "SuperReader"});
 #line 7
-        testRunner.Given("that the following users exists", ((string)(null)), table1, "Given ");
+        testRunner.Given("that the following users exists", ((string)(null)), table9, "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                         "AccessGroupId",
                         "AccessGroup",
                         "ParentGroupId"});
-            table2.AddRow(new string[] {
+            table10.AddRow(new string[] {
                         "ec425f3b-ee49-40c1-b8fc-d5c7cc4a8910",
                         "sales-domain-r",
                         "51848b79-eba9-499e-946c-a71598e560ed"});
-            table2.AddRow(new string[] {
+            table10.AddRow(new string[] {
                         "51848b79-eba9-499e-946c-a71598e560ed",
                         "sales-domain-crud",
                         "fca72704-1d47-4cca-9502-f7c8d2052d40"});
-            table2.AddRow(new string[] {
+            table10.AddRow(new string[] {
                         "fca72704-1d47-4cca-9502-f7c8d2052d40",
                         "super-crud",
                         "<null />"});
-            table2.AddRow(new string[] {
+            table10.AddRow(new string[] {
                         "5b0f5e44-c20c-43eb-a57e-f81a468116f2",
                         "super-r",
                         "fca72704-1d47-4cca-9502-f7c8d2052d40"});
-            table2.AddRow(new string[] {
+            table10.AddRow(new string[] {
                         "28325e81-d6ea-4c52-8df4-ca068f343809",
                         "product-domain-r",
                         "3a1d8302-b333-47c7-a3ae-eb4516b23c8e"});
-            table2.AddRow(new string[] {
+            table10.AddRow(new string[] {
                         "3a1d8302-b333-47c7-a3ae-eb4516b23c8e",
                         "product-domain-crud",
                         "fca72704-1d47-4cca-9502-f7c8d2052d40"});
-            table2.AddRow(new string[] {
+            table10.AddRow(new string[] {
                         "4c9d7e88-35b6-4855-aabe-69edb1d3ea5c",
                         "sales-users-folder-r",
                         "ec425f3b-ee49-40c1-b8fc-d5c7cc4a8910"});
-            table2.AddRow(new string[] {
+            table10.AddRow(new string[] {
                         "459b5518-f423-47f8-8cc8-5b2eb7e4dd8a",
                         "sales-users-folder-crud",
                         "51848b79-eba9-499e-946c-a71598e560ed"});
-            table2.AddRow(new string[] {
+            table10.AddRow(new string[] {
                         "6aa91965-3831-425a-94cd-f22516270559",
                         "new-users-folder-crud",
                         "fca72704-1d47-4cca-9502-f7c8d2052d40"});
 #line 15
-        testRunner.And("that the following access groups exists", ((string)(null)), table2, "And ");
+        testRunner.And("that the following access groups exists", ((string)(null)), table10, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserId",
                         "AccessGroupId"});
-            table3.AddRow(new string[] {
+            table11.AddRow(new string[] {
                         "1407c9e0-1bc9-4e46-b576-984cf7b7038f",
                         "fca72704-1d47-4cca-9502-f7c8d2052d40"});
-            table3.AddRow(new string[] {
+            table11.AddRow(new string[] {
                         "9cda3499-8de4-4841-9dfd-ec20872ede6f",
                         "ec425f3b-ee49-40c1-b8fc-d5c7cc4a8910"});
-            table3.AddRow(new string[] {
+            table11.AddRow(new string[] {
                         "306c64f1-49f1-4e4c-ad80-875d753b7192",
                         "51848b79-eba9-499e-946c-a71598e560ed"});
-            table3.AddRow(new string[] {
+            table11.AddRow(new string[] {
                         "306c64f1-49f1-4e4c-ad80-875d753b7192",
                         "459b5518-f423-47f8-8cc8-5b2eb7e4dd8a"});
-            table3.AddRow(new string[] {
+            table11.AddRow(new string[] {
                         "d9696b2e-806c-4ce4-9e9a-51e50b732f1a",
                         "28325e81-d6ea-4c52-8df4-ca068f343809"});
-            table3.AddRow(new string[] {
+            table11.AddRow(new string[] {
                         "1f9b3c51-a657-4eb7-aab1-1dcb459345b3",
                         "3a1d8302-b333-47c7-a3ae-eb4516b23c8e"});
-            table3.AddRow(new string[] {
+            table11.AddRow(new string[] {
                         "f38ed952-a262-47cf-8c49-46f78c0b36ca",
                         "5b0f5e44-c20c-43eb-a57e-f81a468116f2"});
 #line 26
-        testRunner.And("that the users have the following access groups", ((string)(null)), table3, "And ");
+        testRunner.And("that the users have the following access groups", ((string)(null)), table11, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                         "FolderId",
                         "FolderName",
                         "FolderDescription",
                         "ParentId",
                         "OwnerId"});
-            table4.AddRow(new string[] {
+            table12.AddRow(new string[] {
                         "cb889bb1-96ae-434e-ab07-bdcb853bccc5",
                         "SalesArea",
                         "<null />",
                         "<null />",
                         "1407c9e0-1bc9-4e46-b576-984cf7b7038f"});
-            table4.AddRow(new string[] {
+            table12.AddRow(new string[] {
                         "77842885-c2e0-4bdd-9936-0ab7b8eb0a28",
                         "ProductArea",
                         "<null />",
                         "<null />",
                         "1407c9e0-1bc9-4e46-b576-984cf7b7038f"});
-            table4.AddRow(new string[] {
+            table12.AddRow(new string[] {
                         "5c00286f-b936-4784-9795-0b331d43baf4",
                         "SalesItems",
                         "A folder that holds items for sales",
                         "cb889bb1-96ae-434e-ab07-bdcb853bccc5",
                         "306c64f1-49f1-4e4c-ad80-875d753b7192"});
 #line 35
-        testRunner.And("that the following folders exists", ((string)(null)), table4, "And ");
+        testRunner.And("that the following folders exists", ((string)(null)), table12, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
                         "FolderId",
                         "AccessGroupId",
                         "AccessRight"});
-            table5.AddRow(new string[] {
+            table13.AddRow(new string[] {
                         "cb889bb1-96ae-434e-ab07-bdcb853bccc5",
                         "ec425f3b-ee49-40c1-b8fc-d5c7cc4a8910",
                         "-R--"});
-            table5.AddRow(new string[] {
+            table13.AddRow(new string[] {
                         "cb889bb1-96ae-434e-ab07-bdcb853bccc5",
                         "51848b79-eba9-499e-946c-a71598e560ed",
                         "CRUD"});
-            table5.AddRow(new string[] {
+            table13.AddRow(new string[] {
                         "77842885-c2e0-4bdd-9936-0ab7b8eb0a28",
                         "28325e81-d6ea-4c52-8df4-ca068f343809",
                         "-R--"});
-            table5.AddRow(new string[] {
+            table13.AddRow(new string[] {
                         "77842885-c2e0-4bdd-9936-0ab7b8eb0a28",
                         "3a1d8302-b333-47c7-a3ae-eb4516b23c8e",
                         "CRUD"});
 #line 40
-        testRunner.And("that the following access groups can access the folders", ((string)(null)), table5, "And ");
+        testRunner.And("that the following access groups can access the folders", ((string)(null)), table13, "And ");
 #line hidden
         }
         
@@ -261,14 +261,14 @@ namespace StringManager.API.Specs.Features
 #line 48
         testRunner.Given(string.Format("that the user \"{0}\" wants to add a new folder to the domain \"{1}\"", userid, domainid), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Description"});
-                table6.AddRow(new string[] {
+                table14.AddRow(new string[] {
                             "New folder",
                             "A description for this folder."});
 #line 49
-        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table6, "And ");
+        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table14, "And ");
 #line hidden
 #line 52
         testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -282,16 +282,16 @@ namespace StringManager.API.Specs.Features
 #line 55
         testRunner.And("the user gets the http status code \"201 Created\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
                             "Id",
                             "Name",
                             "Description"});
-                table7.AddRow(new string[] {
+                table15.AddRow(new string[] {
                             "<GUID />",
                             "NewFolder",
                             "A description for this folder."});
 #line 56
-        testRunner.And("the following information about the folder is returned", ((string)(null)), table7, "And ");
+        testRunner.And("the following information about the folder is returned", ((string)(null)), table15, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -321,26 +321,26 @@ namespace StringManager.API.Specs.Features
 #line 68
         testRunner.Given("that the user \"1\" wants to add a new folder to the domain \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Description"});
-                table8.AddRow(new string[] {
+                table16.AddRow(new string[] {
                             "SalesUsersFolder",
                             "A description for the sales users folder."});
 #line 69
-        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table8, "And ");
+        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table16, "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
                             "AccessGroupId",
                             "AccessType"});
-                table9.AddRow(new string[] {
+                table17.AddRow(new string[] {
                             "7",
                             "-R--"});
-                table9.AddRow(new string[] {
+                table17.AddRow(new string[] {
                             "8",
                             "CRUD"});
 #line 72
-        testRunner.And("that the user adds the following access groups", ((string)(null)), table9, "And ");
+        testRunner.And("that the user adds the following access groups", ((string)(null)), table17, "And ");
 #line hidden
 #line 76
         testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -351,31 +351,31 @@ namespace StringManager.API.Specs.Features
 #line 78
         testRunner.And("the user with id \"<userid>\" is set as the folders owner", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                             "AccessGroupId",
                             "AccessType"});
-                table10.AddRow(new string[] {
+                table18.AddRow(new string[] {
                             "7",
                             "-R--"});
-                table10.AddRow(new string[] {
+                table18.AddRow(new string[] {
                             "8",
                             "CRUD"});
 #line 79
-        testRunner.And("the folder has the following access groups", ((string)(null)), table10, "And ");
+        testRunner.And("the folder has the following access groups", ((string)(null)), table18, "And ");
 #line hidden
 #line 83
         testRunner.And("the user gets the http status code \"201 Created\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
                             "Id",
                             "Name",
                             "Description"});
-                table11.AddRow(new string[] {
+                table19.AddRow(new string[] {
                             "<GUID />",
                             "SalesUsersFolder",
                             "A description for the sales users folder."});
 #line 84
-        testRunner.And("the following information about the folder is returned", ((string)(null)), table11, "And ");
+        testRunner.And("the following information about the folder is returned", ((string)(null)), table19, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -405,14 +405,14 @@ namespace StringManager.API.Specs.Features
 #line 89
         testRunner.Given("that the user \"3\" wants to add a new folder to the domain \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Description"});
-                table12.AddRow(new string[] {
+                table20.AddRow(new string[] {
                             "SalesUsersFolder",
                             "A description for the sales users folder."});
 #line 90
-        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table12, "And ");
+        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table20, "And ");
 #line hidden
 #line 93
         testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -429,16 +429,16 @@ namespace StringManager.API.Specs.Features
 #line 97
         testRunner.And("the user gets the http status code \"201 Created\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
                             "Id",
                             "Name",
                             "Description"});
-                table13.AddRow(new string[] {
+                table21.AddRow(new string[] {
                             "<GUID />",
                             "SalesUsersFolder",
                             "A description for the sales users folder."});
 #line 98
-        testRunner.And("the following information about the folder is returned", ((string)(null)), table13, "And ");
+        testRunner.And("the following information about the folder is returned", ((string)(null)), table21, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -471,14 +471,14 @@ namespace StringManager.API.Specs.Features
 #line 103
         testRunner.Given("that the user \"1\" wants to add a new folder to the domain \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Description"});
-                table14.AddRow(new string[] {
+                table22.AddRow(new string[] {
                             "SalesUsersFolder",
                             "A description for the sales users folder."});
 #line 104
-        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table14, "And ");
+        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table22, "And ");
 #line hidden
 #line 107
         testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -495,16 +495,16 @@ namespace StringManager.API.Specs.Features
 #line 111
         testRunner.And("the user gets the http status code \"201 Created\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
                             "Id",
                             "Name",
                             "Description"});
-                table15.AddRow(new string[] {
+                table23.AddRow(new string[] {
                             "<GUID />",
                             "SalesUsersFolder",
                             "A description for the sales users folder."});
 #line 112
-        testRunner.And("the following information about the folder is returned", ((string)(null)), table15, "And ");
+        testRunner.And("the following information about the folder is returned", ((string)(null)), table23, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -544,14 +544,14 @@ namespace StringManager.API.Specs.Features
 #line 117
         testRunner.Given(string.Format("that the user \"{0}\" wants to add a new folder to the domain \"{1}\"", userid, domainid), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Description"});
-                table16.AddRow(new string[] {
+                table24.AddRow(new string[] {
                             "NewFolder",
                             "A description for this folder."});
 #line 118
-        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table16, "And ");
+        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table24, "And ");
 #line hidden
 #line 121
         testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -562,17 +562,17 @@ namespace StringManager.API.Specs.Features
 #line 123
         testRunner.And("the user gets the http status code \"401 Unauthorized\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
                             "ProblemType",
                             "Title",
                             "Description"});
-                table17.AddRow(new string[] {
+                table25.AddRow(new string[] {
                             "Problem.Folder.UnauthorizedUser",
                             "Unauthorized user",
                             "The user does not have the permissions to create a new folder in the selected dom" +
                                 "ain."});
 #line 124
-        testRunner.And("the following problem detail is returned", ((string)(null)), table17, "And ");
+        testRunner.And("the following problem detail is returned", ((string)(null)), table25, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -605,23 +605,23 @@ namespace StringManager.API.Specs.Features
 #line 140
         testRunner.Given("that the user \"3\" wants to add a new folder to the domain \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Description"});
-                table18.AddRow(new string[] {
+                table26.AddRow(new string[] {
                             "NewFolder",
                             "A description for this folder."});
 #line 141
-        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table18, "And ");
+        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table26, "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
                             "AccessGroupId",
                             "AccessType"});
-                table19.AddRow(new string[] {
+                table27.AddRow(new string[] {
                             "9",
                             "CRUD"});
 #line 144
-        testRunner.And("that the user adds the following access groups", ((string)(null)), table19, "And ");
+        testRunner.And("that the user adds the following access groups", ((string)(null)), table27, "And ");
 #line hidden
 #line 147
         testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -632,17 +632,17 @@ namespace StringManager.API.Specs.Features
 #line 149
         testRunner.And("the user gets the http status code \"401 Unauthorized\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
                             "ProblemType",
                             "Title",
                             "Description"});
-                table20.AddRow(new string[] {
+                table28.AddRow(new string[] {
                             "Problem.Folder.UnauthorizedUserForAccessGroup",
                             "Unauthorized user",
                             "The user does not have the permissions create a folder within the selected domain" +
                                 "."});
 #line 150
-        testRunner.And("the following problem detail is returned", ((string)(null)), table20, "And ");
+        testRunner.And("the following problem detail is returned", ((string)(null)), table28, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -672,23 +672,23 @@ namespace StringManager.API.Specs.Features
 #line 155
         testRunner.Given("that the user \"1\" wants to add a new folder to the domain \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Description"});
-                table21.AddRow(new string[] {
+                table29.AddRow(new string[] {
                             "SalesItems",
                             "A folder that holds sales information."});
 #line 156
-        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table21, "And ");
+        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table29, "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
                             "AccessGroupId",
                             "AccessType"});
-                table22.AddRow(new string[] {
+                table30.AddRow(new string[] {
                             "9",
                             "CRUD"});
 #line 159
-        testRunner.And("that the user adds the following access groups", ((string)(null)), table22, "And ");
+        testRunner.And("that the user adds the following access groups", ((string)(null)), table30, "And ");
 #line hidden
 #line 162
         testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -699,16 +699,16 @@ namespace StringManager.API.Specs.Features
 #line 164
         testRunner.And("the user gets the http status code \"400 Bad Request\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
                             "ProblemType",
                             "Title",
                             "Description"});
-                table23.AddRow(new string[] {
+                table31.AddRow(new string[] {
                             "Problem.Folder.ExistingFolderName",
                             "Folder name exists",
                             "A folder with the requested name already exists."});
 #line 165
-        testRunner.And("the following problem detail is returned", ((string)(null)), table23, "And ");
+        testRunner.And("the following problem detail is returned", ((string)(null)), table31, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -744,23 +744,23 @@ namespace StringManager.API.Specs.Features
 #line 170
         testRunner.Given("that the user \"1\" wants to add a new folder to the domain \"1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Description"});
-                table24.AddRow(new string[] {
+                table32.AddRow(new string[] {
                             string.Format("{0}", invalidFolderName),
                             "A description for this folder."});
 #line 171
-        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table24, "And ");
+        testRunner.And("that the user enters the following information about the folder", ((string)(null)), table32, "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
                             "AccessGroupId",
                             "AccessType"});
-                table25.AddRow(new string[] {
+                table33.AddRow(new string[] {
                             "9",
                             "CRUD"});
 #line 174
-        testRunner.And("that the user adds the following access groups", ((string)(null)), table25, "And ");
+        testRunner.And("that the user adds the following access groups", ((string)(null)), table33, "And ");
 #line hidden
 #line 177
         testRunner.When("the user sends the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -771,16 +771,16 @@ namespace StringManager.API.Specs.Features
 #line 179
         testRunner.And("the user gets the http status code \"401 Unauthorized\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
                             "ProblemType",
                             "Title",
                             "Description"});
-                table26.AddRow(new string[] {
+                table34.AddRow(new string[] {
                             "Problem.Folder.InvalidFolderName",
                             "Invalid folder name",
                             "The name entered for the folder is invalid."});
 #line 180
-        testRunner.And("the following problem detail is returned", ((string)(null)), table26, "And ");
+        testRunner.And("the following problem detail is returned", ((string)(null)), table34, "And ");
 #line hidden
             }
             this.ScenarioCleanup();

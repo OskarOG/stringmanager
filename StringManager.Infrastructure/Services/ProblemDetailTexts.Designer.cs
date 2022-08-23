@@ -28,7 +28,7 @@ namespace StringManager.Infrastructure.Services {
         internal static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
-                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("StringManager.Application.Services.Domain.ProblemDetailTexts", typeof(ProblemDetailTexts).Assembly);
+                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("StringManager.Infrastructure.Services.ProblemDetailTexts", typeof(ProblemDetailTexts).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -66,6 +66,30 @@ namespace StringManager.Infrastructure.Services {
         internal static string title_InvalidName {
             get {
                 return ResourceManager.GetString("title-InvalidName", resourceCulture);
+            }
+        }
+        
+        internal static string detail_NoUserFound {
+            get {
+                return ResourceManager.GetString("detail-NoUserFound", resourceCulture);
+            }
+        }
+        
+        internal static string title_NoUserFound {
+            get {
+                return ResourceManager.GetString("title-NoUserFound", resourceCulture);
+            }
+        }
+        
+        internal static string title_IncorrectPassword {
+            get {
+                return ResourceManager.GetString("title-IncorrectPassword", resourceCulture);
+            }
+        }
+        
+        internal static string detail_IncorrectPassword {
+            get {
+                return ResourceManager.GetString("detail-IncorrectPassword", resourceCulture);
             }
         }
     }

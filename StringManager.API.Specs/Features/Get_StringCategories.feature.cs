@@ -79,56 +79,56 @@ namespace StringManager.API.Specs.Features
         {
 #line 3
     #line hidden
-            TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table35 = new TechTalk.SpecFlow.Table(new string[] {
                         "AccessGroup",
                         "Id",
                         "Name",
                         "Description",
                         "AmountOfItemsInCategory"});
-            table27.AddRow(new string[] {
+            table35.AddRow(new string[] {
                         "basic-list",
                         "1",
                         "BasicList",
                         "A basic list",
                         "100"});
-            table27.AddRow(new string[] {
+            table35.AddRow(new string[] {
                         "special-list",
                         "2",
                         "SpecialList",
                         "A special list",
                         "5"});
 #line 4
-        testRunner.Given("that we have the following categories", ((string)(null)), table27, "Given ");
+        testRunner.Given("that we have the following categories", ((string)(null)), table35, "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table36 = new TechTalk.SpecFlow.Table(new string[] {
                         "CategoryId",
                         "Tag"});
-            table28.AddRow(new string[] {
+            table36.AddRow(new string[] {
                         "1",
                         "Basic"});
-            table28.AddRow(new string[] {
+            table36.AddRow(new string[] {
                         "1",
                         "CustomTag"});
-            table28.AddRow(new string[] {
+            table36.AddRow(new string[] {
                         "2",
                         "Special"});
 #line 8
-        testRunner.And("that the categories have the following tags", ((string)(null)), table28, "And ");
+        testRunner.And("that the categories have the following tags", ((string)(null)), table36, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table37 = new TechTalk.SpecFlow.Table(new string[] {
                         "Username",
                         "AccessGroup"});
-            table29.AddRow(new string[] {
+            table37.AddRow(new string[] {
                         "basicUser",
                         "basic-list-r"});
-            table29.AddRow(new string[] {
+            table37.AddRow(new string[] {
                         "adminUser",
                         "basic-list-crud"});
-            table29.AddRow(new string[] {
+            table37.AddRow(new string[] {
                         "newUser",
                         "new-list-r"});
 #line 13
-        testRunner.And("that the users have the following access groups", ((string)(null)), table29, "And ");
+        testRunner.And("that the users have the following access groups", ((string)(null)), table37, "And ");
 #line hidden
         }
         
@@ -242,16 +242,16 @@ namespace StringManager.API.Specs.Features
 #line 38
         testRunner.When("the api gets the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table38 = new TechTalk.SpecFlow.Table(new string[] {
                             "ProblemType",
                             "Title",
                             "Detail"});
-                table30.AddRow(new string[] {
+                table38.AddRow(new string[] {
                             "InvalidUserName",
                             "Invalid user",
                             "The user specified in the request is invalid"});
 #line 39
-        testRunner.Then("the following problem detail is returned", ((string)(null)), table30, "Then ");
+        testRunner.Then("the following problem detail is returned", ((string)(null)), table38, "Then ");
 #line hidden
 #line 42
         testRunner.And("the response has the http status code \"400 Bad Request\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

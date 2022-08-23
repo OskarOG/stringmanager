@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using NSubstitute;
 using StringManager.Application.Services.Domain;
+using StringManager.Application.Services.Infrastructure;
 using StringManager.Domain.Objects.Entity;
 using StringManager.TestHelpers.Fixtures;
 using Xunit;
@@ -23,9 +24,11 @@ public class TokenCreationServiceTests
         string issuer,
         string key,
         [Frozen] IConfiguration configuration,
+        [Frozen] IDateTimeService dateTimeService,
         TokenCreationService sut)
     {
         // Arrange
+        dateTimeService.GetUniversalTime().Returns(DateTime.Now);
         configuration["Jwt:Issuer"].Returns(issuer);
         configuration["Jwt:Key"].Returns(key);
         
