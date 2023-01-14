@@ -20,16 +20,14 @@ public class UserDriver : IUserDriver
         _dbContext = dbContext;
         _httpClientDriver = httpClientDriver;
     }
-    
-    public NewUserRow CurrentNewUserRequest
+
+    private NewUserRow CurrentNewUserRequest
     {
         get => _currentNewUserRequest ?? throw new StepMissingException("A given step to set up the CurrentNewUserRequest is missing.");
-        private set => _currentNewUserRequest = value;
+        set => _currentNewUserRequest = value;
     }
 
-    public IEnumerable<Guid>? NewUsersInitialAccessGroupIds { get; private set; }
-    
-    public Guid SignedInUserId { get; private set; }
+    private IEnumerable<Guid>? NewUsersInitialAccessGroupIds { get; set; }
 
     public void CreateUserResponseShouldContainAnId()
     {
@@ -37,16 +35,6 @@ public class UserDriver : IUserDriver
 
         response.Should().NotBeNull();
         response!.Id.Should().NotBeEmpty();
-    }
-
-    public void NoSignedInUser()
-    {
-        SignedInUserId = Guid.Empty;
-    }
-
-    public void SignInUser(string userId)
-    {
-        SignedInUserId = Guid.Parse(userId);
     }
 
     public void SaveNewUserInformation(NewUserRow request)
@@ -73,9 +61,9 @@ public class UserDriver : IUserDriver
                 ?? throw new InvalidProgramException("Unable to get role type from step data."),
             NewUsersInitialAccessGroupIds?.ToArray());
 
-        await _httpClientDriver.SendRequestAsync(
+        await _httpClientDriver.SendRequestWithTokenAsync(
             HttpMethod.Post,
-            "/UserManagement",
+            "http://localhost/api/v1/user",
             JsonConvert.SerializeObject(request));
     }
 

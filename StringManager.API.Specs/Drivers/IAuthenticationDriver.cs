@@ -4,8 +4,6 @@ namespace StringManager.API.Specs.Drivers;
 
 public interface IAuthenticationDriver
 {
-    string Jwt { get; }
-    
     void SaveUserInformation(SignInInfoRow signInInfoRow);
     
     Task SendAuthenticationRequestAsync();
@@ -15,4 +13,6 @@ public interface IAuthenticationDriver
     void TokenShouldContainRoleAsClaim(string userRoleString);
     
     void ValidateReturnedToken();
+
+    void ClearAuthenticationToken();
 }

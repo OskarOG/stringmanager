@@ -4,13 +4,7 @@ namespace StringManager.API.Specs.Drivers;
 
 public interface IUserDriver
 {
-    Guid SignedInUserId { get; }
-    
     void CreateUserResponseShouldContainAnId();
-    
-    void NoSignedInUser();
-    
-    void SignInUser(string userId);
     
     void SaveNewUserInformation(NewUserRow newUser);
     

@@ -15,18 +15,6 @@ public class CreateUserSteps
         _userDriver = userDriver;
     }
 
-    [Given(@"that the user ""(.*)"" is signed in")]
-    public void GivenThatTheUserIsSignedIn(string userId)
-    {
-        _userDriver.SignInUser(userId);
-    }
-    
-    [Given(@"that no user is signed in")]
-    public void GivenThatNoUserIsSignedIn()
-    {
-        _userDriver.NoSignedInUser();
-    }
-
     [Given(@"want to create a new user with the following information")]
     public void GivenWantToCreateANewUserWithTheFollowingInformation(Table table)
     {
@@ -36,7 +24,8 @@ public class CreateUserSteps
     [Given(@"that the new user should be included in the following access groups")]
     public void GivenThatTheNewUserShouldBeIncludedInTheFollowingAccessGroups(Table table)
     {
-        _userDriver.SaveTheNewUsersInitialAccessGroups(table.CreateSet<Guid>());
+        _userDriver.SaveTheNewUsersInitialAccessGroups(
+            table.Rows.Select(row => Guid.Parse(row.Values.First())));
     }
 
     [When(@"the new user request is sent")]

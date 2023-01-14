@@ -8,5 +8,6 @@ public enum ProblemType
     InvalidNewPassword,
     UnableToParseUserRoleType,
     EmptyOrNullFolderDescription,
-    WrongUserInformation
+    WrongUserInformation,
+    NonExistingAccessGroup
 }

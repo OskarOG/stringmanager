@@ -19,7 +19,7 @@ namespace StringManager.API.Specs.Features.Authentication
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class AuthenticationUserAuthenticationFeature : object, Xunit.IClassFixture<AuthenticationUserAuthenticationFeature.FixtureData>, System.IDisposable
+    public partial class AuthenticationCreateUserTokenFeature : object, Xunit.IClassFixture<AuthenticationCreateUserTokenFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -28,10 +28,10 @@ namespace StringManager.API.Specs.Features.Authentication
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "UserAuthentication.feature"
+#line 1 "CreateUserToken.feature"
 #line hidden
         
-        public AuthenticationUserAuthenticationFeature(AuthenticationUserAuthenticationFeature.FixtureData fixtureData, StringManager_API_Specs_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public AuthenticationCreateUserTokenFeature(AuthenticationCreateUserTokenFeature.FixtureData fixtureData, StringManager_API_Specs_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,7 +40,7 @@ namespace StringManager.API.Specs.Features.Authentication
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Authentication", "Authentication/UserAuthentication", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Authentication", "Authentication/CreateUserToken", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -118,7 +118,7 @@ namespace StringManager.API.Specs.Features.Authentication
         }
         
         [Xunit.SkippableTheoryAttribute(DisplayName="User can authenticate and get a token that is valid for the expected time")]
-        [Xunit.TraitAttribute("FeatureTitle", "Authentication/UserAuthentication")]
+        [Xunit.TraitAttribute("FeatureTitle", "Authentication/CreateUserToken")]
         [Xunit.TraitAttribute("Description", "User can authenticate and get a token that is valid for the expected time")]
         [Xunit.TraitAttribute("Category", "UserAuthenticationToken")]
         [Xunit.InlineDataAttribute("adminuser@email.com", "Password1", "Administrator", new string[0])]
@@ -181,7 +181,7 @@ namespace StringManager.API.Specs.Features.Authentication
         }
         
         [Xunit.SkippableTheoryAttribute(DisplayName="User wants to authenticate with invalid email")]
-        [Xunit.TraitAttribute("FeatureTitle", "Authentication/UserAuthentication")]
+        [Xunit.TraitAttribute("FeatureTitle", "Authentication/CreateUserToken")]
         [Xunit.TraitAttribute("Description", "User wants to authenticate with invalid email")]
         [Xunit.TraitAttribute("Category", "BusinessRuleError")]
         [Xunit.InlineDataAttribute("hello", new string[0])]
@@ -221,7 +221,7 @@ namespace StringManager.API.Specs.Features.Authentication
                             "Password"});
                 table3.AddRow(new string[] {
                             "<userEmail>",
-                            "ValidPassword1"});
+                            "Qwerty123"});
 #line 32
       testRunner.Given("that the user with the following information wants to sign in", ((string)(null)), table3, "Given ");
 #line hidden
@@ -247,7 +247,7 @@ namespace StringManager.API.Specs.Features.Authentication
         }
         
         [Xunit.SkippableFactAttribute(DisplayName="User wants to authenticate with non existing email")]
-        [Xunit.TraitAttribute("FeatureTitle", "Authentication/UserAuthentication")]
+        [Xunit.TraitAttribute("FeatureTitle", "Authentication/CreateUserToken")]
         [Xunit.TraitAttribute("Description", "User wants to authenticate with non existing email")]
         [Xunit.TraitAttribute("Category", "UserError")]
         public void UserWantsToAuthenticateWithNonExistingEmail()
@@ -300,7 +300,7 @@ namespace StringManager.API.Specs.Features.Authentication
         }
         
         [Xunit.SkippableFactAttribute(DisplayName="User wants to authenticate with the wrong password")]
-        [Xunit.TraitAttribute("FeatureTitle", "Authentication/UserAuthentication")]
+        [Xunit.TraitAttribute("FeatureTitle", "Authentication/CreateUserToken")]
         [Xunit.TraitAttribute("Description", "User wants to authenticate with the wrong password")]
         [Xunit.TraitAttribute("Category", "UserError")]
         public void UserWantsToAuthenticateWithTheWrongPassword()
@@ -359,12 +359,12 @@ namespace StringManager.API.Specs.Features.Authentication
             
             public FixtureData()
             {
-                AuthenticationUserAuthenticationFeature.FeatureSetup();
+                AuthenticationCreateUserTokenFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                AuthenticationUserAuthenticationFeature.FeatureTearDown();
+                AuthenticationCreateUserTokenFeature.FeatureTearDown();
             }
         }
     }

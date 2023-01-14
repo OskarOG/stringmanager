@@ -27,44 +27,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Features\UserManagement\CreateUser.feature.cs">
-        <DependentUpon>CreateUser.feature</DependentUpon>
-        <AutoGen>true</AutoGen>
-        <DesignTime>true</DesignTime>
-        <Visible>true</Visible>
-      </Compile>
-      <Compile Update="Features\Folder\Create_Folder_In_Domain.feature.cs">
-        <DependentUpon>Create_Folder_In_Domain.feature</DependentUpon>
-        <AutoGen>true</AutoGen>
-        <DesignTime>true</DesignTime>
-        <Visible>true</Visible>
-      </Compile>
       <Compile Update="Features\Folder\DomainManagement.feature.cs">
         <DependentUpon>DomainManagement.feature</DependentUpon>
-        <AutoGen>true</AutoGen>
-        <DesignTime>true</DesignTime>
-        <Visible>true</Visible>
-      </Compile>
-      <Compile Update="Features\Folder\EnvironmentManagement.feature.cs">
-        <DependentUpon>EnvironmentManagement.feature</DependentUpon>
-        <AutoGen>true</AutoGen>
-        <DesignTime>true</DesignTime>
-        <Visible>true</Visible>
-      </Compile>
-      <Compile Update="Features\Folder\Get_StringCategories.feature.cs">
-        <DependentUpon>Get_StringCategories.feature</DependentUpon>
-        <AutoGen>true</AutoGen>
-        <DesignTime>true</DesignTime>
-        <Visible>true</Visible>
-      </Compile>
-      <Compile Update="Features\Folder\StringCategories.feature.cs">
-        <DependentUpon>StringCategories.feature</DependentUpon>
-        <AutoGen>true</AutoGen>
-        <DesignTime>true</DesignTime>
-        <Visible>true</Visible>
-      </Compile>
-      <Compile Update="Features\Folder\StringItems.feature.cs">
-        <DependentUpon>StringItems.feature</DependentUpon>
         <AutoGen>true</AutoGen>
         <DesignTime>true</DesignTime>
         <Visible>true</Visible>

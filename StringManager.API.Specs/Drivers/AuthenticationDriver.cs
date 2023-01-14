@@ -4,6 +4,7 @@ using System.Text;
 using FluentAssertions;
 using Microsoft.IdentityModel.Tokens;
 using StringManager.API.Specs.Drivers.RowObjects;
+using StringManager.API.Specs.Support.Contexts;
 using StringManager.API.Specs.Support.Exceptions;
 using StringManager.API.V1.Messages;
 
@@ -11,28 +12,28 @@ namespace StringManager.API.Specs.Drivers;
 
 public class AuthenticationDriver : IAuthenticationDriver
 {
+    private readonly AuthContext _authContext;
     private readonly IHttpClientDriver _httpClientDriver;
     private readonly IDateTimeDriver _dateTimeDriver;
 
-    private string? _jwt;
     private SignInInfoRow? _signInInfoRow;
     private ClaimsPrincipal? _tokenClaims;
     private SecurityToken? _securityToken;
 
     public AuthenticationDriver(
+        AuthContext authContext,
         IHttpClientDriver httpClientDriver,
         IDateTimeDriver dateTimeDriver)
     {
+        _authContext = authContext;
         _dateTimeDriver = dateTimeDriver;
         _httpClientDriver = httpClientDriver;
     }
-
-    public string Jwt => _jwt ?? throw new StepMissingException("A step for requesting a new token is missing");
     
-    public ClaimsPrincipal TokenClaims =>
+    private ClaimsPrincipal TokenClaims =>
         _tokenClaims ?? throw new StepMissingException("A step for validating the token is missing");
 
-    public SecurityToken SecurityToken => _securityToken ??
+    private SecurityToken SecurityToken => _securityToken ??
                                           throw new StepMissingException(
                                               "A then step for validating the token is missing");
 
@@ -52,7 +53,7 @@ public class AuthenticationDriver : IAuthenticationDriver
             "http://localhost/api/v1/auth",
             new UserTokenRequest(SignInInformation.Email, SignInInformation.Password));
 
-        _jwt = _httpClientDriver.DeserializeContent<UserTokenResponse>().Token;
+        _authContext.Jwt = _httpClientDriver.DeserializeContent<UserTokenResponse>().Token;
     }
 
     public void ValidateReturnedToken()
@@ -73,6 +74,11 @@ public class AuthenticationDriver : IAuthenticationDriver
                 ValidateLifetime = false
             },
             out _securityToken);
+    }
+
+    public void ClearAuthenticationToken()
+    {
+        _authContext.Jwt = string.Empty;
     }
 
     public void TokenShouldBeValidForExpectedTime(int minutes)

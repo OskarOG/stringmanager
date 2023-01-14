@@ -26,10 +26,12 @@ After that it is possible to select the role for the user
 
    @ResourceCreation
    Scenario Template: User with user management role or administrator creates new standard user
-      Given that the user "<userId>" is signed in
+      Given that the user signs in with the following information
+        | Email   | Password   |
+        | <email> | <password> |
       And want to create a new user with the following information
-        | Email              | Password | RoleType |
-        | testuser@email.com | abc123   | User     |
+        | Email              | Password   | RoleType |
+        | testuser@email.com | Abcdefg123 | User     |
       And that the new user should be included in the following access groups
         | AccessGroupId                        |
         | 4605a27b-6f86-47c3-ac1a-547aa1b01fe3 |
@@ -41,13 +43,15 @@ After that it is possible to select the role for the user
 
    ## The difference between these two scenarios is the role of the user calling the API, both should be able to create the user.
       Scenarios:
-        | userId                               |
-        | 616aba5c-e933-4b22-a383-93aea94379b4 |
-        | c0a1b5bd-d48d-44c3-bf25-0500ebbd239d |
+        | email               | password  |
+        | adminuser@email.com | Password1 |
+        | useradmin@email.com | Password2 |
 
    @ResourceCreation
    Scenario: Administrator tries to create new user with Administrator role
-      Given that the user "616aba5c-e933-4b22-a383-93aea94379b4" is signed in
+      Given that the user signs in with the following information
+        | Email               | Password  |
+        | adminuser@email.com | Password1 |
       And want to create a new user with the following information
         | Email              | Password | RoleType      |
         | testuser@email.com | abc123   | Administrator |
@@ -58,7 +62,9 @@ After that it is possible to select the role for the user
 
    @ResourceCreation
    Scenario: Administrator tries to create new user with UserAdmin role
-      Given that the user "616aba5c-e933-4b22-a383-93aea94379b4" is signed in
+      Given that the user signs in with the following information
+        | Email               | Password  |
+        | adminuser@email.com | Password1 |
       And want to create a new user with the following information
         | Email              | Password | RoleType  |
         | testuser@email.com | abc123   | UserAdmin |
@@ -73,7 +79,9 @@ After that it is possible to select the role for the user
 
    @ResourceCreation
    Scenario: User admin tries to create new user with UserAdmin role
-      Given that the user "c0a1b5bd-d48d-44c3-bf25-0500ebbd239d" is signed in
+      Given that the user signs in with the following information
+        | Email               | Password  |
+        | useradmin@email.com | Password2 |
       And want to create a new user with the following information
         | Email              | Password | RoleType  |
         | testuser@email.com | abc123   | UserAdmin |
@@ -88,7 +96,9 @@ After that it is possible to select the role for the user
 
    @ResourceCreation
    Scenario: User admin tries to create new user with FolderAdmin role
-      Given that the user "c0a1b5bd-d48d-44c3-bf25-0500ebbd239d" is signed in
+      Given that the user signs in with the following information
+        | Email               | Password  |
+        | useradmin@email.com | Password2 |
       And want to create a new user with the following information
         | Email              | Password | RoleType    |
         | testuser@email.com | abc123   | FolderAdmin |
@@ -99,7 +109,9 @@ After that it is possible to select the role for the user
 
    @BusinessRuleError
    Scenario: User admin tries to create new administrator
-      Given that the user "c0a1b5bd-d48d-44c3-bf25-0500ebbd239d" is signed in
+      Given that the user signs in with the following information
+        | Email               | Password  |
+        | useradmin@email.com | Password2 |
       And want to create a new user with the following information
         | Email              | Password | RoleType      |
         | testuser@email.com | abc123   | Administrator |
@@ -116,7 +128,9 @@ After that it is possible to select the role for the user
 
    @BusinessRuleError
    Scenario: Folder admin tries to create new user
-      Given that the user "910b77cb-ee2a-4673-bc34-78c0992b0f05" is signed in
+      Given that the user signs in with the following information
+        | Email                 | Password  |
+        | folderadmin@email.com | Password3 |
       And want to create a new user with the following information
         | Email              | Password | RoleType |
         | testuser@email.com | abc123   | User     |
@@ -133,7 +147,9 @@ After that it is possible to select the role for the user
 
    @BusinessRuleError
    Scenario: Administrator tries to create a new user with an email that is already registered
-      Given that the user "616aba5c-e933-4b22-a383-93aea94379b4" is signed in
+      Given that the user signs in with the following information
+        | Email               | Password  |
+        | adminuser@email.com | Password1 |
       And want to create a new user with the following information
         | Email                 | Password | RoleType |
         | folderadmin@email.com | abc123   | User     |
@@ -150,7 +166,9 @@ After that it is possible to select the role for the user
 
    @BusinessRuleError
    Scenario Template: Administrator tries to create a new user with an invalid email
-      Given that the user "616aba5c-e933-4b22-a383-93aea94379b4" is signed in
+      Given that the user signs in with the following information
+        | Email               | Password  |
+        | adminuser@email.com | Password1 |
       And want to create a new user with the following information
         | Email          | Password | RoleType |
         | <invalidEmail> | abc123   | User     |
@@ -177,7 +195,9 @@ After that it is possible to select the role for the user
 
    @BusinessRuleError
    Scenario Template: Administrator tries to create a new user with invalid password
-      Given that the user "616aba5c-e933-4b22-a383-93aea94379b4" is signed in
+      Given that the user signs in with the following information
+        | Email               | Password  |
+        | adminuser@email.com | Password1 |
       And want to create a new user with the following information
         | Email          | Password          | RoleType |
         | test@email.com | <invalidPassword> | User     |
@@ -204,7 +224,9 @@ After that it is possible to select the role for the user
 
    @BusinessRuleError
    Scenario: Administrator tries to create a new user with initial access group that does not exist
-      Given that the user "616aba5c-e933-4b22-a383-93aea94379b4" is signed in
+      Given that the user signs in with the following information
+        | Email               | Password  |
+        | adminuser@email.com | Password1 |
       And want to create a new user with the following information
         | Email          | Password          | RoleType |
         | test@email.com | <invalidPassword> | User     |
@@ -223,8 +245,8 @@ After that it is possible to select the role for the user
    Scenario: User that is not signed in tries to create a new user
       Given that no user is signed in
       And want to create a new user with the following information
-        | Email          | Password          | RoleType |
-        | test@email.com | <invalidPassword> | User     |
+        | Email          | Password        | RoleType |
+        | test@email.com | invalidPassword | User     |
       And that the new user should be included in the following access groups
         | AccessGroupId                        |
         | 4605a27b-6f86-47c3-ac1a-547aa1b01fe3 |

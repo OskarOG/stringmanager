@@ -1,33 +1,28 @@
 using System.Net;
+using System.Net.Http.Headers;
 using System.Text;
-using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using StringManager.API.Specs.Support;
+using StringManager.API.Specs.Support.Contexts;
 using StringManager.API.Specs.Support.Exceptions;
-using StringManager.Application.Persistence;
-using StringManager.Application.Services.Infrastructure;
-using StringManager.Infrastructure.Persistence;
-using StringManager.TestHelpers.Fixtures;
-using StringManager.TestHelpers.Objects;
 
 namespace StringManager.API.Specs.Drivers;
 
 public class HttpClientDriver : IHttpClientDriver
 {
-    private readonly StringManagerWebApiFactory _webAppFactory;
-
+    private readonly AuthContext _authContext;
+    private readonly IWebApiFactoryWrapper _webApiFactoryWrapper;
+    
     private string? _currentStringContent;
     private HttpStatusCode? _currentHttpStatusCode;
     private object? _currentDeserializedContent;
 
     public HttpClientDriver(
-        StringManagerDbContext dbContext,
-        IDateTimeService dateTimeService)
+        AuthContext authContext,
+        IWebApiFactoryWrapper webApiFactoryWrapper)
     {
-        _webAppFactory = new StringManagerWebApiFactory(new Dictionary<Type, CustomServiceMock>
-        {
-            [typeof(IUnitOfWork)] = new(ServiceLifetime.Scoped, dbContext),
-            [typeof(IDateTimeService)] = new(ServiceLifetime.Transient, dateTimeService)
-        });
+        _authContext = authContext;
+        _webApiFactoryWrapper = webApiFactoryWrapper;
     }
 
     public string CurrentStringContent
@@ -58,11 +53,28 @@ public class HttpClientDriver : IHttpClientDriver
 
     public async Task SendRequestAsync(HttpMethod method, string endpoint, string? content)
     {
-        var client = _webAppFactory.CreateClient();
+        var client = _webApiFactoryWrapper.CreateClient();
         var response = await client.SendAsync(new HttpRequestMessage(method, endpoint)
         {
             Content = content != null ? new StringContent(content, Encoding.UTF8, "application/json") : null
         });
+
+        CurrentStringContent = await response.Content.ReadAsStringAsync();
+        CurrentHttpStatusCode = response.StatusCode;
+    }
+
+    public async Task SendRequestWithTokenAsync(HttpMethod method, string endpoint, object? content) =>
+        await SendRequestWithTokenAsync(method, endpoint, JsonConvert.SerializeObject(content));
+
+    public async Task SendRequestWithTokenAsync(HttpMethod method, string endpoint, string? content)
+    {
+        var client = _webApiFactoryWrapper.CreateClient();
+        client.DefaultRequestHeaders.Authorization = AuthenticationHeaderValue.Parse($"{_authContext.Jwt}");
+        var response = await client.SendAsync(
+            new HttpRequestMessage(method, endpoint)
+            {
+                Content = content != null ? new StringContent(content, Encoding.UTF8, "application/json") : null
+            });
 
         CurrentStringContent = await response.Content.ReadAsStringAsync();
         CurrentHttpStatusCode = response.StatusCode;

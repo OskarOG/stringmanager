@@ -13,4 +13,8 @@ public interface IHttpClientDriver
     Task SendRequestAsync(HttpMethod method, string endpoint, object? content);
     
     Task SendRequestAsync(HttpMethod method, string endpoint, string? content);
+    
+    Task SendRequestWithTokenAsync(HttpMethod method, string endpoint, object? content);
+    
+    Task SendRequestWithTokenAsync(HttpMethod method, string endpoint, string? content);
 }

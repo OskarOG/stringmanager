@@ -8,7 +8,7 @@ Feature: Authentication/CreateUserToken
         | 910b77cb-ee2a-4673-bc34-78c0992b0f05 | folderadmin@email.com | FolderAdmin   | Password3 |
         | 11a8f678-b1b4-4d95-8191-0ea27f72407e | user@email.com        | User          | Password4 |
       And that the current date and time is "2022-08-02 12:00"
-      
+
    @UserAuthenticationToken
    Scenario Template: User can authenticate and get a token that is valid for the expected time
       Given that the user with the following information wants to sign in
@@ -30,8 +30,8 @@ Feature: Authentication/CreateUserToken
    @BusinessRuleError
    Scenario Template: User wants to authenticate with invalid email
       Given that the user with the following information wants to sign in
-        | Email       | Password       |
-        | <userEmail> | ValidPassword1 |
+        | Email       | Password  |
+        | <userEmail> | Qwerty123 |
       When the create token request is sent
       Then the http status code "400 Bad Request" is returned
       And the following problem detail is returned
